@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - BlockObject
+  - TransparentCheck
+  - EndBlockObject
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - OntriggerCheck
+  - Navmesh
   - 
   - 
   - 
