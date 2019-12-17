@@ -16,7 +16,7 @@ public class Target : MonoBehaviour
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
+            int layerMask = ((1 << LayerMask.NameToLayer("OntriggerCheck")) | (1 << LayerMask.NameToLayer("Navmesh"))); //특정 레이어 제외
             if (Physics.Raycast(ray, out hit))
             {
                 agent.SetDestination(hit.point);
