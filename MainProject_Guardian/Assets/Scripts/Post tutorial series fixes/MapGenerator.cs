@@ -12,6 +12,7 @@ public class MapGenerator : MonoBehaviour {
 	
 	public Transform tilePrefab;
 	public Transform obstaclePrefab;
+    public Transform torchPrefab;
 	public Transform mapFloor;
 	public Transform navmeshFloor;
 	public Transform navmeshMaskPrefab;
@@ -36,7 +37,8 @@ public class MapGenerator : MonoBehaviour {
 	void OnNewWave(int waveNumber) {
 		mapIndex = waveNumber - 1;
 		GenerateMap ();
-	}
+        
+    }
 
     private void Update()
     {
@@ -89,7 +91,7 @@ public class MapGenerator : MonoBehaviour {
 			Coord randomCoord = GetRandomCoord();
 			obstacleMap[randomCoord.x,randomCoord.y] = true;
 			currentObstacleCount ++;
-			
+
 			if (randomCoord != currentMap.mapCentre && MapIsFullyAccessible(obstacleMap, currentObstacleCount)) {
 				float obstacleHeight = Mathf.Lerp(currentMap.minObstacleHeight,currentMap.maxObstacleHeight,(float)prng.NextDouble());
 				Vector3 obstaclePosition = CoordToPosition(randomCoord.x,randomCoord.y);
@@ -103,6 +105,7 @@ public class MapGenerator : MonoBehaviour {
 				float colourPercent = randomCoord.y / (float)currentMap.mapSize.y;
 				obstacleMaterial.color = Color.Lerp(currentMap.foregroundColour,currentMap.backgroundColour,colourPercent);
 				obstacleRenderer.sharedMaterial = obstacleMaterial;
+
 
 				allOpenCoords.Remove(randomCoord);
 			}

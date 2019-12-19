@@ -1,0 +1,446 @@
+fileFormatVersion: 2
+guid: cfaf267a8f4d84e4d950f1ce18daec19
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RightHead
+    21300002: RighrtLhand
+    21300004: RightRhand
+    21300006: LeftHead
+    21300008: LeftLhand
+    21300010: LeftRhand
+    21300012: RightLleg
+    21300014: RightRleg
+    21300016: LeftLleg
+    21300018: LeftRleg
+    21300020: RightLfoot
+    21300022: RightRfoot
+    21300024: LeftLfoot
+    21300026: LeftRfoot
+    21300028: RightBody
+    21300030: LeftBody
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RightHead
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 325
+        width: 67
+        height: 74
+      alignment: 9
+      pivot: {x: 0.52518654, y: 0.014895465}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e579e1824eca924e8de09718ed021c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RighrtLhand
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 374
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.799147, y: 0.799147}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b19621d8954bb814a8cd2189d839f68f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightRhand
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 374
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.20085183, y: 0.799147}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846c02931a5f7704a8852d19eed092b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftHead
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 324
+        width: 67
+        height: 74
+      alignment: 9
+      pivot: {x: 0.48060107, y: 0.025777044}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 196b5bcc8c777ef47a7592f1cb9b62f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLhand
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 373
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.79465103, y: 0.80746156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9838bf628827844a68cf653a016ddd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftRhand
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 373
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.20534745, y: 0.80746156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0fdcdc6b68a644aba363b681e4e6df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLleg
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 359
+        width: 4
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5000038, y: 0.9563488}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e0f26519069b740a019b9385753c71
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightRleg
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 359
+        width: 4
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5000076, y: 0.9552446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c329f3ee674064f990d8020698a055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLleg
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 358
+        width: 4
+        height: 11
+      alignment: 9
+      pivot: {x: 0.49999237, y: 0.96527934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28086295f178e14b9a0b6bd3159170c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftRleg
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 358
+        width: 4
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5094452, y: 0.963562}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4307bcfe0a73774cbb94b6c94077f88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLfoot
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 344
+        width: 7
+        height: 12
+      alignment: 9
+      pivot: {x: 0.2916336, y: 0.95789593}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f936f05f18391984cb5e9a837af8d8e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightRfoot
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 344
+        width: 7
+        height: 12
+      alignment: 9
+      pivot: {x: 0.28441292, y: 0.95732373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ac344130635c84dbfc872befdd65c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLfoot
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 343
+        width: 7
+        height: 12
+      alignment: 9
+      pivot: {x: 0.71276635, y: 0.95285034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525a2a260a98add4daa3b38dd6e1e44c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftRfoot
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 343
+        width: 7
+        height: 12
+      alignment: 9
+      pivot: {x: 0.707016, y: 0.95955914}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e5f79a2803edd4687f5d946814fc18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightBody
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 292
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 631487001c224f54a939752cca07b08d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftBody
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 291
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8cad9cbd2c99c41a6fc5b0d3ee3e10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ea70a27e601476e47ba9e971f9a831ad
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
