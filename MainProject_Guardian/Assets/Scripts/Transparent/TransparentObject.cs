@@ -13,7 +13,7 @@ public class TransparentObject : MonoBehaviour
 
     private void Start()
     {
-        int i = Random.Range(0, 6);
+        int i = Random.Range(0, 5);
         if(i == 0 && fireLightObj)
         {
             fireLightObj.SetActive(true);
@@ -26,7 +26,6 @@ public class TransparentObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("벽 뒤에 있음");
         if(other.tag == "Player")
         {
             for(int i = 0; i < objectH.Length; i++)
@@ -42,7 +41,6 @@ public class TransparentObject : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("트리거 아웃");
         if (other.tag == "Player")
         {
             for (int i = 0; i < objectH.Length; i++)

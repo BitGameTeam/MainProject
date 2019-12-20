@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerInfo.playerState = CharacterStatus.State.Move;
         Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
-        crossSpeed = 0.8f;
+        crossSpeed = 1.0f;
         if (movement.x > 0)
         {
             animator.SetBool("isRun", true);

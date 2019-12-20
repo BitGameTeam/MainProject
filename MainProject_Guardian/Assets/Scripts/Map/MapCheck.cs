@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//맵의 유효성을 판단하는 클래스 (던전의 입구, 보스입구, 몬스터 배치)
 public class MapCheck : MonoBehaviour
 {
+    #region 동굴입구 관련변수
     [Header("-맵의 왼쪽라인(최상단, 최하단)")]
     [SerializeField]
     GameObject mapLeftTop;
@@ -15,6 +16,7 @@ public class MapCheck : MonoBehaviour
     GameObject mapRightTop;
     [SerializeField]
     GameObject mapRightBottom;
+    #endregion
 
     /*[Header("- Health Point")]
     [SerializeField]
@@ -25,6 +27,7 @@ public class MapCheck : MonoBehaviour
     GameObject[] topPointList;
     [SerializeField]
     GameObject[] bottomPointList;*/
+
 
     [SerializeField]
     GameObject startPos;
