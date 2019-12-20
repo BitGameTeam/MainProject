@@ -10,8 +10,10 @@ public class SkillInfo : MonoBehaviour
     public float skill_Range;
     public float skill_Motion;
     public float skill_Cooltime;
-    public GameObject[] skill_Effect;
-    RaycastHit hit;
+    public float skill_Coefficient;
+    [SerializeField]
+    public float skill_Damage;
+
     /*public int Skill_Number { get { return skill_Number; } set { skill_Number = value; } }
     //public string Skill_Name { get { return skill_Name; } set { skill_Name = value; } }
     //public float Skill_Range { get { return skill_Range; } set { skill_Range = value; } }
@@ -27,77 +29,22 @@ public class SkillInfo : MonoBehaviour
         Buff = 3
     }
 
-    public void Return_Skill(int skill_Number, Transform player)
+    private GameObject skill_Object;
+    private void Start()
     {
-        switch(skill_Number)
-        {
-            case 0: Smash(player); break;
-            case 1: Xslach(player); break;
-            case 2: WindSpin(player); break;
-            case 3: DoubleStrike(player); break;
-        }
+        skill_Object = this.gameObject;
     }
 
-    void Smash(Transform player)
+    private void OnEnable()
     {
-        for (int i = 0; i < 3; i++)
-        {
-           if (i == 0)
-           {
-              GameObject projectile = Instantiate(skill_Effect[0], player.position, Quaternion.identity) as GameObject;
-              projectile.GetComponent<Rigidbody>().AddForce(player.transform.right * -600);
-              projectile.GetComponent<PixelArsenalProjectileScript>();
-                Destroy(projectile, 3f);
-           }
-           else if(i == 1)
-           {
-              GameObject projectile = Instantiate(skill_Effect[0], player.position, Quaternion.identity) as GameObject;
-              projectile.GetComponent<Transform>().position = player.transform.position + new Vector3(0, 1f, 0);
-              projectile.GetComponent<Rigidbody>().AddForce(player.transform.right * -600);
-              projectile.GetComponent<PixelArsenalProjectileScript>();
-                Destroy(projectile, 3f);
-            }
-           else if (i == 2)
-           {
-              GameObject projectile = Instantiate(skill_Effect[0], player.position, Quaternion.identity) as GameObject;
-              projectile.GetComponent<Transform>().position = player.transform.position + new Vector3(0, -1f, 0);
-              projectile.GetComponent<Rigidbody>().AddForce(player.transform.right * -600);
-              projectile.GetComponent<PixelArsenalProjectileScript>();
-                Destroy(projectile, 3f);
-            }
-
-        }
+        skill_Damage = (CharacterStatus.instance.attack_Point / 100) * skill_Coefficient;
+        StartCoroutine(HideSkill());
     }
-    void Xslach(Transform player)
-    {
-       GameObject projectile = Instantiate(skill_Effect[1], player.position, Quaternion.identity) as GameObject;
-       projectile.GetComponent<Rigidbody>().AddForce(player.transform.right * -600);
-       projectile.GetComponent<PixelArsenalProjectileScript>();
-       Destroy(projectile, 3f);
+    IEnumerator HideSkill()
+    { 
+      yield return new WaitForSeconds(skill_Motion);
+      skill_Object.SetActive(false);
+      StopCoroutine(HideSkill());
     }
-    void WindSpin(Transform player)
-    {
-      GameObject projectile = Instantiate(skill_Effect[2], player.position, Quaternion.identity) as GameObject;
-      projectile.GetComponent<Rigidbody>().AddForce(player.transform.right * -600);
-      projectile.GetComponent<PixelArsenalProjectileScript>();
-      Destroy(projectile, 3f);
-    }
-    void DoubleStrike(Transform player)
-    {
-      GameObject projectile = Instantiate(skill_Effect[3], player.position, Quaternion.identity) as GameObject;
-      GameObject projectile2 = Instantiate(skill_Effect[4], player.position, skill_Effect[4].transform.rotation);
-      projectile.GetComponent<Transform>().position = player.transform.position + new Vector3(-2, 2f, 0);
-      projectile2.GetComponent<Transform>().position = player.transform.position + new Vector3(-2.3f, 1.8f, 0);
 
-        //projectile2.GetComponent<Transform>().rotation = new Quaternion(0, 90, 0, 0);
-      projectile2.GetComponent<Rigidbody>().AddForce(player.transform.right * -800);
-      projectile2.GetComponent<Rigidbody>().AddForce(player.transform.up * -60);
-
-      projectile.GetComponent<PixelArsenalProjectileScript>();
-      projectile2.GetComponent<PixelArsenalProjectileScript>();
-
-      Destroy(projectile, 0.7f);
-      Destroy(projectile2, 2f);
-
-    }
 }

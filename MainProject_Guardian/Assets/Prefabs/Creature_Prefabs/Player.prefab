@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253657288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17, y: 1.58, z: 0.83}
+  m_LocalPosition: {x: 0.17, y: -1.57, z: 0.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7053519782553440515}
@@ -72,7 +72,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 3}
+  m_Size: {x: 4, y: 7, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2743584001368171546
 GameObject:
@@ -867,7 +867,6 @@ GameObject:
   - component: {fileID: 335523949}
   - component: {fileID: 7053519782553440513}
   - component: {fileID: 1795796996}
-  - component: {fileID: 1795796997}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -884,7 +883,7 @@ Transform:
   m_GameObject: {fileID: 7053519782553440516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.24327599, y: 0.24327599, z: 0.24327599}
+  m_LocalScale: {x: 0.16051593, y: 0.16051593, z: 0.16051593}
   m_Children:
   - {fileID: 1253657289}
   - {fileID: 7053519782030521996}
@@ -923,21 +922,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7053519782553440516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc3828e212ad1d3488272338f5104605, type: 3}
+  m_Script: {fileID: 11500000, guid: 1454214922c28de43bc677b8c63685c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill_spawn: {fileID: 0}
-  skill_po: []
   animator: {fileID: 7053519782553440514}
   attack1anim: {fileID: 0}
   rotateSideFloat: 0
-  playerSpeed: 0.1
+  playerSpeed: 1
   crossSpeed: 1
   delayT: 1
+  skill_transform: {fileID: 0}
   camera: {fileID: 0}
   playerInfo: {fileID: 7053519782553440513}
+  skill_Point: {fileID: 2743584001368171546}
+  z_pos: 0
   rg: {fileID: 1795796996}
-  characterPart: {fileID: 7053519782553440516}
+  characterPart: {fileID: 7053519782030521997}
+  test: {fileID: 0}
 --- !u!114 &7053519782553440513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +948,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7053519782553440516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f830b071d0048494f8481e1b921e75cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 281e477cd475965478224cea29183222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp_Point: 0
@@ -962,7 +963,6 @@ MonoBehaviour:
   char_Stic: 0
   playerTribe: 0
   playerState: 0
-  Items: []
   item_Set_Position: {fileID: 0}
   item_att: {fileID: 0}
   ii: {fileID: 0}
@@ -982,19 +982,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &1795796997
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7053519782553440516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 6, y: 10, z: 6}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7756620263339828994
 GameObject:
   m_ObjectHideFlags: 0

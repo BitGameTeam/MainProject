@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ItemInfo : SkillInfo
+public class ItemInfo : MonoBehaviour
 {
     #region 아이템 정보
     public int item_Number;
@@ -32,16 +32,4 @@ public class ItemInfo : SkillInfo
         Stuff = 6
     }
     #endregion
-
-    private void Start()
-    {
-    }
-    public void Use_Skill_first(Transform t)
-    {
-        Return_Skill(skill_Set_Num[0], t);
-    }
-    public void Use_Skill_Second(Transform t)
-    {
-        Return_Skill(skill_Set_Num[1], t);
-    }
 }

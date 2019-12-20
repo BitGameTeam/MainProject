@@ -1,0 +1,362 @@
+fileFormatVersion: 2
+guid: d2b4a71a00ec0494f87ad9ee53d4d9dc
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: LArm_1
+    21300002: Head
+    21300004: Body
+    21300006: RArm_1
+    21300008: Cloak
+    21300010: RArm_2
+    21300012: LArm_2
+    21300014: RLeg_1
+    21300016: LLeg_1
+    21300018: RLeg_2
+    21300020: LLeg_2
+    21300022: Sword
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LArm_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 73
+        width: 10
+        height: 13
+      alignment: 9
+      pivot: {x: 0.33768615, y: 0.5681035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2009c0633f65145be5df869a94aba8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 85
+        width: 16
+        height: 14
+      alignment: 9
+      pivot: {x: 0.38026762, y: 0.08420726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de2370eec07e48459f7f696224cf801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 64
+        width: 15
+        height: 19
+      alignment: 9
+      pivot: {x: 0.6178895, y: 0.13547274}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ed4b202608d6544aa52adc3c98ad67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RArm_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 69
+        width: 12
+        height: 15
+      alignment: 9
+      pivot: {x: 0.7951155, y: 0.7852783}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959088fac57ff654fb1e03f7e98f7b39
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cloak
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 26
+        width: 31
+        height: 34
+      alignment: 9
+      pivot: {x: 0.87078214, y: 0.972426}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3b3a87cf9de684a8ffcfb15367ef87
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RArm_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 56
+        width: 9
+        height: 8
+      alignment: 9
+      pivot: {x: 0.28725135, y: 0.8315158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b4f4d5213dd2042b9f2b1fab5d32dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LArm_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 57
+        width: 9
+        height: 9
+      alignment: 9
+      pivot: {x: 0.23802185, y: 0.79472435}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c80825fd95ce74289297e7c7b3ccad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RLeg_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 13
+        height: 16
+      alignment: 9
+      pivot: {x: 0.77254987, y: 0.9238498}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2734ed6083ca94db269e4f70b5556c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LLeg_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 39
+        width: 13
+        height: 11
+      alignment: 9
+      pivot: {x: 0.15976715, y: 0.942069}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12dc7d2bf0da9134bbfbc2eff74f4a50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RLeg_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 21
+        width: 11
+        height: 12
+      alignment: 9
+      pivot: {x: 0.312448, y: 0.8192849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ffe71df7a1b724da9e3dcd3bb719ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LLeg_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 22
+        width: 10
+        height: 14
+      alignment: 9
+      pivot: {x: 0.0873848, y: 0.6999919}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 698529f656954164cb2cbf95e5a75531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2
+        width: 19
+        height: 16
+      alignment: 9
+      pivot: {x: 0.09669289, y: 0.8684056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d737b750d6b9394081ad6b3c443e8df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 49c3423cbacc8b44facb5d3592a3e2f0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
