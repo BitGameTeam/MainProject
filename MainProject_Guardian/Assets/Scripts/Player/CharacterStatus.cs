@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CharacterStatus : MonoBehaviour
 {
+
+    public static CharacterStatus instance;
     #region 플레이어 스텟정보
     public float hp_Point;
     public float attack_Point;
@@ -29,13 +31,11 @@ public class CharacterStatus : MonoBehaviour
 
     public State playerState;
 
-    public GameObject[] Items;
-
-    public Transform item_Set_Position;
+    public GameObject item_Set_Position;
 
     public Text item_att;
 
-    List<GameObject> item_realize = new List<GameObject>();
+    List<GameObject> item_List = new List<GameObject>();
 
     #region 종족, 상태
     public enum Tribe
@@ -67,6 +67,7 @@ public class CharacterStatus : MonoBehaviour
     #region 초기값 설정
     private void Start()
     {
+        instance = this;
         hp_Point = 200f;
         attack_Point = 3f;
         attack_Speed = 1.0f;
@@ -74,12 +75,26 @@ public class CharacterStatus : MonoBehaviour
 
         playerTribe = Tribe.Demon;
         playerState = State.Wating;
+
+        for (int i = 0; ; i++)
+        {
+            try
+            {
+                GameObject c = item_Set_Position.transform.GetChild(i).gameObject;
+                item_List.Add(c);
+            }
+            catch
+            {
+                break;
+            }
+        }
+
         SendStatusData(); //초기실행시 필수
     }
     #endregion
 
     #region 장비 테스트 메서드
-    public void Status_Plus_item()
+    public void Status_Plus_Item()
     {
         hp_Point = hp_Point + php_Point;
         attack_Point = attack_Point + pattack_Point;
@@ -88,7 +103,7 @@ public class CharacterStatus : MonoBehaviour
         move_Speed = pmove_Speed;
         SendStatusData();
     }
-    public void Status_Minus_item()
+    public void Status_Minus_Item()
     {
         hp_Point = hp_Point - php_Point;
         attack_Point = attack_Point - pattack_Point;
@@ -104,10 +119,8 @@ public class CharacterStatus : MonoBehaviour
         //{
             Item_NUll();
             int itemNumber = int.Parse(item_att.text);
-            GameObject item = Instantiate(Items[itemNumber], item_Set_Position);
-            item_realize.Add(item);
-            ii = Items[itemNumber].GetComponent<ItemInfo>();
-           // skill_use[0] = item.GetComponent<SkillInfo>().skill_Name;
+            item_List[itemNumber+1].SetActive(true);
+            ii = item_List[itemNumber+1].GetComponent<ItemInfo>();
             php_Point = ii.ihp_Point;
             pattack_Point = ii.iattack_Point;
             pattack_Speed = ii.iattack_Speed;
@@ -121,7 +134,7 @@ public class CharacterStatus : MonoBehaviour
                 skill_use[i] = ii.skill_Set[i];
             }
         }
-            Status_Plus_item();
+            Status_Plus_Item();
         //}
         //catch(System.Exception ex)
         //{
@@ -130,7 +143,7 @@ public class CharacterStatus : MonoBehaviour
     }
     public void Item_NUll()
     {
-        Status_Minus_item();
+        Status_Minus_Item();
         get_Item = string.Empty;
         for (int i = 0; i < skill_use.Length; i++)
         {
@@ -139,9 +152,9 @@ public class CharacterStatus : MonoBehaviour
                 skill_use[i] = null;
             }
         }
-        foreach (GameObject g in item_realize)
+        foreach (GameObject g in item_List)
         {
-            Destroy(g);
+            g.SetActive(false);
         }
     }
     #endregion
@@ -152,8 +165,6 @@ public class CharacterStatus : MonoBehaviour
         SendStatusData(); //상태정보가 바뀌면 해당 상태정보를 사용하는 클래스에게 변경사실을 알려야함
     }
     #endregion
-
-
     #region Playermovemt클래스로 정보전달(공속 등)
     public void SendStatusData() //PlayerMovement 클래스의 GetSendData 메서드를 발생시킴
     {
@@ -162,6 +173,4 @@ public class CharacterStatus : MonoBehaviour
         pm.SendMessage("GetStatusData", status);
     }
     #endregion
-    
- 
 }

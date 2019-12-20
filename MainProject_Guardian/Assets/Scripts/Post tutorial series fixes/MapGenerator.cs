@@ -40,10 +40,6 @@ public class MapGenerator : MonoBehaviour {
         
     }
 
-    private void Update()
-    {
-        
-    }
 
 
     public void GenerateMap() {

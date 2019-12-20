@@ -18,7 +18,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (target)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, cameraHeight, target.position.z), followSpeed);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, cameraHeight, target.position.z -2), followSpeed);
         }
     }
 }

@@ -7,16 +7,23 @@ public class TopConnect : MonoBehaviour
 {
     [SerializeField]
     GameObject fireLightObj;
-
+    [SerializeField]
+    GameObject frontWall;
+    [SerializeField]
+    GameObject ikkiWall;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "WallConnectCheck")
         {
-            Debug.Log("벽 연결됨");
+            
             GameObject child =  this.transform.GetChild(0).gameObject;
             child.SetActive(true);
             if(fireLightObj)
                 fireLightObj.SetActive(false);
+            if (frontWall)
+                frontWall.SetActive(false);
+            if (ikkiWall)
+                ikkiWall.SetActive(false);
         }
     }
 }

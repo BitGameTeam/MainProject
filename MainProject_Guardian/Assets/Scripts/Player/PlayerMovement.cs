@@ -1,14 +1,10 @@
-﻿using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-
-    #region 스킬관련
-    public GameObject skill_spawn;
-    public GameObject[] skill_po;
-    #endregion
+    #region 변수들 (애니메이션에 필요)
     public Animator animator;
     public Animation attack1anim;
     public float rotateSideFloat = 0.0f;
@@ -17,23 +13,38 @@ public class PlayerMovement : MonoBehaviour
     public float delayT = 1.0f;
     private float primeDelayT = 1.0f; //delayT의 초기값을 저장하는 중요한 변수
     float revertDelay;
-    //private bool isMove = true, isAttack = false, isHit = false;
-    private Vector2 target;
+    private Vector3 target;
+    public Transform skill_transform; 
     public Camera camera;
+    #endregion
+    #region 변수들 스텟(플레이어 정보) 관련
+    private int mouse_rot = 0;
     public CharacterStatus playerInfo;
+    public GameObject skill_Point;
 
+    private int skill_num;
+
+    private float skill_Cool;
+    private bool skill_Cool_Check;
+    #endregion
+    Vector3 mouse_Position;
+    [SerializeField]
+    private float z_pos;
     [SerializeField]
     Rigidbody rg;
     [SerializeField]
     GameObject characterPart;
+    public GameObject test;
 
-    private void Start()
+    void Start()
     {
-        
         playerInfo = this.gameObject.GetComponent<CharacterStatus>();
+        skill_Cool_Check = true;
+        StartCoroutine(State_Check());
     }
-    
-    public void GetStatusData(object[] status) //CharacterStatus 클래스의 SendStatusData 메서드로부터 플레이어 현재상태를 받아옴 (주로 무기교체, 아이템사용시 발생)
+
+    //CharacterStatus 클래스의 SendStatusData 메서드로부터 플레이어 현재상태를 받아옴 (주로 무기교체, 아이템사용시 발생)
+    public void GetStatusData(object[] status) 
     {
         #region 공격속도 변경
         delayT = (float)status[0]; //상태배열의 0번째를 받아옴
@@ -43,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(revertDelay.ToString() + " / " + delayT.ToString()); //디버그용
         #endregion
     }
+
     #region 애니메이션
+    //마우스쪽 바라봄
     private void MouseState()
     {
         target = Input.mousePosition;
@@ -53,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         else if (this.transform.position.x < target.x)
             characterPart.transform.rotation = Quaternion.Euler(270, 90, 90);
     }
+    //공격 애니
     private void Attack()
     {
         
@@ -86,11 +100,12 @@ public class PlayerMovement : MonoBehaviour
             delayT = primeDelayT;
         }
     }
+    //움직임 애니
     private void Move()
     {
         playerInfo.playerState = CharacterStatus.State.Move;
         Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
-        crossSpeed = 1.0f;
+        crossSpeed = 0.8f;
         if (movement.x > 0)
         {
             animator.SetBool("isRun", true);
@@ -134,11 +149,12 @@ public class PlayerMovement : MonoBehaviour
             #endregion
             crossSpeed = 0.8f;
         }
-        transform.position = transform.position + movement *playerInfo.move_Speed * crossSpeed;
+        transform.position = transform.position + movement * playerInfo.move_Speed * crossSpeed;
     }
+    //스킬 관련 
     private void Skill()
     {
-        float animationNum = Random.Range(0, 5);
+        float animationNum = 0;
         switch (animationNum)
         {
             case 0:
@@ -157,47 +173,10 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("isAttack2", true);
                 break;
         }
-        delayT -= Time.deltaTime;
-        if(delayT < 0.5 && delayT > 0.47)
-        {
-            playerInfo.ii.Use_Skill_first(this.transform);
-        }
-        if (delayT < 0)
-        {
 
-            animator.SetBool("isAttack1", false);
-            animator.SetBool("isAttack2", false);
-            animator.SetBool("isAttack3", false);
-            playerInfo.playerState = CharacterStatus.State.Wating;
-            delayT = primeDelayT;
-        }
-    }
-    private void Skill2()
-    {
-        float animationNum = Random.Range(0, 5);
-        switch (animationNum)
-        {
-            case 0:
-                animator.SetBool("isAttack1", true);
-                break;
-            case 1:
-                animator.SetBool("isAttack2", true);
-                break;
-            case 2:
-                animator.SetBool("isAttack3", true);
-                break;
-            case 3:
-                animator.SetBool("isAttack1", true);
-                break;
-            case 4:
-                animator.SetBool("isAttack2", true);
-                break;
-        }
         delayT -= Time.deltaTime;
-        if (delayT < 0.5 && delayT > 0.47)
-        {
-            playerInfo.ii.Use_Skill_Second(this.transform);
-        }
+        skill_Cool = SkillManagement.instance.Return_Skill(playerInfo.ii.skill_Set_Num[skill_num], this.transform);
+        StartCoroutine(Skill_Cool_Wait());
         if (delayT < 0)
         {
 
@@ -209,44 +188,62 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     #endregion
-
+    //키보드 키 입력 받음
     void FixedUpdate()
-    { 
-        #region 이동메서드
-        if ((int)playerInfo.playerState == 1|| (int)playerInfo.playerState == 2)
-        {
-            MouseState();
-            Move();
-        }
-        #endregion
-        #region 공격메서드
-        if ((int)playerInfo.playerState == 6)
-        {
-            Attack();
-        }
-        else if((int)playerInfo.playerState == 7)
-        {
-            Skill();
-        }
-        else if ((int)playerInfo.playerState == 3)
-        {
-            Skill2();
-        }
-        #endregion
+    {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             MouseState();
             playerInfo.playerState = CharacterStatus.State.Attack;
         }
-        else if(Input.GetKeyDown(KeyCode.Q))
-        {
-           MouseState();
-           playerInfo.playerState = CharacterStatus.State.Skill;
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.Q) && skill_Cool_Check == true)
         {
             MouseState();
-            playerInfo.playerState = CharacterStatus.State.Dash;
+            PointRotation.instance.Get_Zrot();
+            skill_num = 0;
+            playerInfo.playerState = CharacterStatus.State.Skill;
         }
+        else if (Input.GetKeyDown(KeyCode.E) && skill_Cool_Check == true)
+        {
+            MouseState();
+            PointRotation.instance.Get_Zrot();
+            skill_num = 1;
+            playerInfo.playerState = CharacterStatus.State.Skill;
+        }
+    }
+
+    // 플레이어 상태에 따른 변화
+    IEnumerator State_Check()
+    {
+        for (; ; )
+        {
+            #region 상태메서드
+            //이동
+            if ((int)playerInfo.playerState == 1 || (int)playerInfo.playerState == 2)
+            {
+                MouseState();
+                Move();
+            }
+            //평타
+            else if ((int)playerInfo.playerState == 6)
+            {
+                Attack();
+            }
+            //스킬
+            else if ((int)playerInfo.playerState == 7)
+            {
+                Skill();
+            }
+            #endregion
+            yield return null;
+        }
+    }
+    //스킬 쿨타임 관련
+    IEnumerator Skill_Cool_Wait()
+    {
+        skill_Cool_Check = false;
+        yield return new WaitForSeconds(skill_Cool);
+        skill_Cool_Check = true;
+        StopCoroutine(Skill_Cool_Wait());
     }
 }
