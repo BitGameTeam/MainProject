@@ -28,10 +28,21 @@ public class MapGenerator : MonoBehaviour {
 	Transform[,] tileMap;
 	
 	Map currentMap;
+
+    bool[,] obstacleMap;
+
+    [Header ("-던전 시작, 보스 방 입구")]
+    public GameObject mapStart;
+    public GameObject bossDoor;
+    [SerializeField]
+    private Transform[] leftWallList;
+
+
 	
 	void Awake() {
         //FindObjectOfType<Spawner> ().OnNewWave += OnNewWave;
         surface.BuildNavMesh();
+        GenerateEntrance();
     }
 
 	void OnNewWave(int waveNumber) {
@@ -40,7 +51,97 @@ public class MapGenerator : MonoBehaviour {
         
     }
 
-
+    void GenerateEntrance()
+    {
+        int randomSide = Random.Range(0, 3);
+        List<int> startListNum = new List<int>();
+        //각 사이드에 따른 벽확인
+        switch(randomSide)
+        {
+            case 0:
+                for (int i = 0; i < maxMapSize.x; i++) // 왼쪽벽 확인
+                {
+                    if (obstacleMap[0, i] == false)
+                    {
+                        startListNum.Add(i);
+                        mapStart.transform.position = new Vector3(-20, 0, 20 - (i * 2));
+                        mapStart.SetActive(true);
+                    }
+                }
+                break;
+            case 1:
+                for (int i = 0; i < maxMapSize.x; i++) // 오른쪽벽 확인
+                {
+                    if (obstacleMap[19, i] == false)
+                    {
+                        startListNum.Add(i);
+                        mapStart.transform.position = new Vector3(20, 0, 20 - (i * 2));
+                        mapStart.SetActive(true);
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < maxMapSize.x; i++) // 위쪽벽 확인
+                {
+                    if (obstacleMap[i, 0] == false)
+                    {
+                        startListNum.Add(i);
+                        mapStart.transform.position = new Vector3(-20 + (i*2), 0, 20);
+                        mapStart.SetActive(true);
+                    }
+                }
+                break;
+            case 3:
+                for (int i = 0; i < maxMapSize.x; i++) // 아래쪽벽 확인
+                {
+                    if (obstacleMap[i, 19] == false)
+                    {
+                        startListNum.Add(i);
+                        mapStart.transform.position = new Vector3(-20 + (i * 2), 0, -20);
+                        mapStart.SetActive(true);
+                    }
+                }
+                break;
+        }
+        //안막힌 벽에 랜덤으로 시작생성
+        switch (randomSide)
+        {
+            case 0:
+                for (int i = 0; i < maxMapSize.x; i++) // 왼쪽
+                {
+                    int randomStart = Random.Range(0, startListNum[startListNum.Count]);
+                    mapStart.transform.position = new Vector3(-20, 0, 20 - (startListNum[randomStart] * 2));
+                    mapStart.SetActive(true);
+                }
+                break;
+            case 1:
+                for (int i = 0; i < maxMapSize.x; i++) // 오른쪽
+                {
+                    int randomStart = Random.Range(0, startListNum[startListNum.Count]);
+                    mapStart.transform.position = new Vector3(20, 0, 20 - (startListNum[randomStart] * 2));
+                    mapStart.SetActive(true);
+                    
+                }
+                break;
+            case 2:
+                for (int i = 0; i < maxMapSize.x; i++) // 위쪽
+                {
+                    int randomStart = Random.Range(0, startListNum[startListNum.Count]);
+                    mapStart.transform.position = new Vector3(-20 + (startListNum[randomStart] * 2), 0, 20);
+                    mapStart.SetActive(true);
+                 
+                }
+                break;
+            case 3:
+                for (int i = 0; i < maxMapSize.x; i++) // 아래쪽
+                {
+                    int randomStart = Random.Range(0, startListNum[startListNum.Count]);
+                    mapStart.transform.position = new Vector3(-20 + (startListNum[randomStart] * 2), 0, -20);
+                    mapStart.SetActive(true);
+                }
+                break;
+        }
+    }
 
     public void GenerateMap() {
 		currentMap = maps[mapIndex];
@@ -77,7 +178,7 @@ public class MapGenerator : MonoBehaviour {
 		}
 
 		// Spawning obstacles
-		bool[,] obstacleMap = new bool[(int)currentMap.mapSize.x,(int)currentMap.mapSize.y];
+		obstacleMap = new bool[(int)currentMap.mapSize.x,(int)currentMap.mapSize.y];
 		
 		int obstacleCount = (int)(currentMap.mapSize.x * currentMap.mapSize.y * currentMap.obstaclePercent);
 		int currentObstacleCount = 0;

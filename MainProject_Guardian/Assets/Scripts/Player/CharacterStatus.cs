@@ -71,7 +71,7 @@ public class CharacterStatus : MonoBehaviour
         hp_Point = 200f;
         attack_Point = 3f;
         attack_Speed = 1.0f;
-        move_Speed = 0.12f;
+        move_Speed = 0.09f;
 
         playerTribe = Tribe.Demon;
         playerState = State.Wating;
