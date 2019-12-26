@@ -11,9 +11,14 @@ public class TopConnect : MonoBehaviour
     GameObject frontWall;
     [SerializeField]
     GameObject ikkiWall;
+    public GameObject startEndManager;
+    private void Start()
+    {
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "WallConnectCheck")
+        
+        if (other.tag == "WallConnectCheck")
         {
             
             GameObject child =  this.transform.GetChild(0).gameObject;
@@ -24,6 +29,7 @@ public class TopConnect : MonoBehaviour
                 frontWall.SetActive(false);
             if (ikkiWall)
                 ikkiWall.SetActive(false);
+
         }
     }
 }

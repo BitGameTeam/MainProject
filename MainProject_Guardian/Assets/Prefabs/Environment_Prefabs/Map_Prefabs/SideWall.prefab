@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8265734851062511337}
   - component: {fileID: 8265734851062511350}
   m_Layer: 0
-  m_Name: Tcollider
+  m_Name: TcolliderS
   m_TagString: WallConnectCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,6 +62,8 @@ MonoBehaviour:
   fireLightObj: {fileID: 0}
   frontWall: {fileID: 0}
   ikkiWall: {fileID: 0}
+  startEndManager: {fileID: 4595015751391750607, guid: 0df5920cedd29484c97978c16bf68ab2,
+    type: 3}
 --- !u!54 &8265734851062511350
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -170,7 +172,7 @@ GameObject:
   - component: {fileID: 8265734851367698905}
   - component: {fileID: 8265734851367698918}
   m_Layer: 0
-  m_Name: Lcollider
+  m_Name: LcolliderS
   m_TagString: WallConnectCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,6 +221,8 @@ MonoBehaviour:
   fireLightObj: {fileID: 0}
   frontWall: {fileID: 0}
   ikkiWall: {fileID: 0}
+  startEndManager: {fileID: 4595015751391750607, guid: 0df5920cedd29484c97978c16bf68ab2,
+    type: 3}
 --- !u!54 &8265734851367698918
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -247,7 +251,7 @@ GameObject:
   - component: {fileID: 8265734851518852292}
   m_Layer: 0
   m_Name: SideWall
-  m_TagString: Untagged
+  m_TagString: SideWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,7 +411,7 @@ GameObject:
   - component: {fileID: 8265734852016271058}
   - component: {fileID: 8265734852016271059}
   m_Layer: 0
-  m_Name: Bcollider
+  m_Name: BcolliderS
   m_TagString: WallConnectCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,6 +460,8 @@ MonoBehaviour:
   fireLightObj: {fileID: 0}
   frontWall: {fileID: 0}
   ikkiWall: {fileID: 0}
+  startEndManager: {fileID: 4595015751391750607, guid: 0df5920cedd29484c97978c16bf68ab2,
+    type: 3}
 --- !u!54 &8265734852016271059
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -485,7 +491,7 @@ GameObject:
   - component: {fileID: 8265734852070068482}
   - component: {fileID: 8265734852070068483}
   m_Layer: 0
-  m_Name: Rcollider
+  m_Name: RcolliderS
   m_TagString: WallConnectCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -534,6 +540,8 @@ MonoBehaviour:
   fireLightObj: {fileID: 0}
   frontWall: {fileID: 0}
   ikkiWall: {fileID: 0}
+  startEndManager: {fileID: 4595015751391750607, guid: 0df5920cedd29484c97978c16bf68ab2,
+    type: 3}
 --- !u!54 &8265734852070068483
 Rigidbody:
   m_ObjectHideFlags: 0
