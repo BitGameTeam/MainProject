@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class SpawnDungeonMonster : MonoBehaviour
 {
+    public enum State
+    {
+        Move,
+        Scale,
+        Complete
+    }
+    State state;
 
-    #region 몬스터 무리 배치관련 변수
-    [Header("-4x4 구역 Collider")]
-    [SerializeField]
-    GameObject monsterArea4x4;
-    [Header("-3x3 구역 Collider")]
-    [SerializeField]
-    GameObject monsterArea3x3;
+    #region 콜라이더 변수
     [Header("-2x2 구역 Collider")]
     [SerializeField]
     GameObject monsterArea2x2;
 
+    [SerializeField]    //z, x축 이동, 확장 변수
+    int zAxisT = 0;
+    [SerializeField]
+    int xAxisT = 0;
+    [SerializeField]
+    float scale = 0;
+    [SerializeField]
+    float scale4 = 0;
+    #endregion
+
+    #region 몬스터 무리 배치관련 변수
     [Header("-상급 몬스터")]
     public GameObject monsterHard;
     [Header("-중급 몬스터")]
@@ -30,30 +42,43 @@ public class SpawnDungeonMonster : MonoBehaviour
 
     private void Start()
     {
-        //MoveCollider4x4();
+        state = State.Scale;
     }
 
     private void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.Z))
-        //    monsterArea4x4.transform.Translate(new Vector3(0, 0, -8));
-        //if(Input.GetKeyDown(KeyCode.X))
-        //    monsterArea4x4.transform.Translate(new Vector3(8, 0, 32));
+        switch(state)
+        {
+            case State.Move:
+                MoveZAxis();
+                break;
+            case State.Scale:   
+
+                break;
+            case State.Complete:
+                Destroy(monsterArea2x2);
+                break;
+        }
     }
 
-    #region 충돌개체 이동 메서드
-    //void MoveCollider4x4()
-    //{
-    //    for(int x = 0; x < 5; x++) //5번 반복
-    //    {
-    //        for (int z = 0; z < 4; z++) //Z축 방향으로 4번 이동
-    //        {
-    //            monsterArea4x4.transform.Translate(new Vector3(0, 0, -8));
-    //        }
-    //        monsterArea4x4.transform.Translate(new Vector3(8, 0, 32));   //x축 방향으로 1번이동
-    //    }
-    //    monsterArea4x4.SetActive(false);
-    //}
+    #region 충돌 오브젝트 이동, 확장 메서드
+    IEnumerator MoveZAxis() //z축 이동 메서드
+    {
+        monsterArea2x2.transform.Translate(new Vector3(0, 0, -2));
+        zAxisT += 1;
+        yield return new WaitForSeconds(.01f);
+    }
+    IEnumerator MoveXAxis() //x축 이동 메서드
+    {
+        monsterArea2x2.transform.Translate(new Vector3(2, 0, 36));
+        xAxisT += 1;
+        yield return new WaitForSeconds(.01f);
+    }
+    IEnumerator IncreaseScale()
+    {
+        monsterArea2x2.transform.localScale += new Vector3(0.1f, 0, 0.1f);
+        yield return new WaitForSeconds(.01f);
+    }
     #endregion
 
     #region 소환관련 메서드
