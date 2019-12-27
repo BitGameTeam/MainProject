@@ -8,18 +8,20 @@ public class DunMonCollider : MonoBehaviour
     GameObject spawnManager;
     RandomSpawnMonster rsm;
     float delayT = 0f;
-
+     
     private void Start()
     {
         rsm = spawnManager.GetComponent<RandomSpawnMonster>();
+        
+        //Destroy(this.gameObject);
     }
 
     void Update()
     {
-        if(delayT == 0f)
+        if (delayT == 0f)
             rsm.SpawnMonster(this.transform);
         delayT += Time.deltaTime;
-        if(delayT > 1.0f)
+        if (delayT > 1.0f)
             Destroy(this.gameObject);
     }
 

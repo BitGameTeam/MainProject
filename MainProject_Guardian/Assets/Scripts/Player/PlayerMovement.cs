@@ -62,9 +62,9 @@ public class PlayerMovement : MonoBehaviour
         target = Input.mousePosition;
         target = camera.ScreenToWorldPoint(target);
         if (this.transform.position.x > target.x)
-            characterPart.transform.rotation = Quaternion.Euler(90, 0, 0);
+            characterPart.transform.rotation = Quaternion.Euler(50, 0, 0);
         else if (this.transform.position.x < target.x)
-            characterPart.transform.rotation = Quaternion.Euler(270, 90, 90);
+            characterPart.transform.rotation = Quaternion.Euler(220, 0, 180);
     }
     //공격 애니
     private void Attack()
@@ -111,14 +111,14 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isRun", true);
             animator.SetBool("isIdle", false);
 
-            characterPart.transform.rotation = Quaternion.Euler(270, 90, 90);
+            characterPart.transform.rotation = Quaternion.Euler(220, 0, 180);
         }
         if (movement.x < 0)
         {
             animator.SetBool("isRun", true);
             animator.SetBool("isIdle", false);
 
-            characterPart.transform.rotation = Quaternion.Euler(90, 0, 0);
+            characterPart.transform.rotation = Quaternion.Euler(50, 0, 0);
         }
         if (movement.x != 0)
         {

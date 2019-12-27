@@ -14,6 +14,8 @@ public class RandomSpawnMonster : MonoBehaviour
     #region 몬스터 무리 배치관련 변수
     [Header("-상급 몬스터")]
     public GameObject monsterHard;
+    [SerializeField]
+    int hardNum = 0;
     [Header("-중급 몬스터")]
     public GameObject monsterNormal;
     [Header("-하급 몬스터")]
@@ -23,7 +25,6 @@ public class RandomSpawnMonster : MonoBehaviour
     [Header("-몬스터 list")]
     [SerializeField]
     GameObject monsterList;
-
 
     [Header("-충돌객체 Prefab")]
     [SerializeField]
@@ -36,18 +37,12 @@ public class RandomSpawnMonster : MonoBehaviour
     [SerializeField]
     GameObject colliderList;
     #endregion
-    // Start is called before the first frame update
+
     void Start()
     {
         CreateColliderObject();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     void CreateColliderObject()
     {
         for(int z = 0; z < zMaxNum; z++)
@@ -67,7 +62,8 @@ public class RandomSpawnMonster : MonoBehaviour
         {
             int r = Random.Range(0, 999);
             Vector3 spawnPos = new Vector3(colliderTransform.transform.position.x, 0.1f, colliderTransform.transform.position.z);
-
+            if (hardNum == 0)
+                r = 99;
             if (0 <= r && r <= 69) //easyMonster
             {
                 GameObject easyMonsterInstance = Instantiate(monsterEasy, spawnPos, Quaternion.identity) as GameObject;
@@ -78,10 +74,11 @@ public class RandomSpawnMonster : MonoBehaviour
                 GameObject normalMonsterInstance = Instantiate(monsterNormal, spawnPos, Quaternion.identity) as GameObject;
                 normalMonsterInstance.transform.parent = monsterList.transform;
             }
-            else if (90 <= r && r <= 99) //hardMonster
+            else if ((90 <= r && r <= 99) && hardNum < 3) //hardMonster
             {
                 GameObject hardMonsterInstance = Instantiate(monsterHard, spawnPos, Quaternion.identity) as GameObject;
                 hardMonsterInstance.transform.parent = monsterList.transform;
+                hardNum++;
             }
         }
         catch(System.Exception e)
@@ -90,6 +87,7 @@ public class RandomSpawnMonster : MonoBehaviour
         }
     }
 
+    //보류중...
     #region 소환관련 메서드
     public void SpawnMonster4x4(Transform colliderT) //상급몬스터 1, 하급몬스터 4 소환
     {

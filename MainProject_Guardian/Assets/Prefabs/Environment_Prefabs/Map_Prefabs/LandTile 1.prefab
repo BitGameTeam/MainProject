@@ -288,7 +288,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: dbdd552424554024795b57b92a073cb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -365,7 +365,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: dbdd552424554024795b57b92a073cb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -471,7 +471,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6502456239573182098}
-  - component: {fileID: 6502456239573182099}
   - component: {fileID: 3227422802637437758}
   m_Layer: 0
   m_Name: LandTile 1
@@ -502,54 +501,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!212 &6502456239573182099
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6502456239573182097}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: 946a16d6b83b36743b0dabcd28a09095, type: 3}
-  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.6}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &3227422802637437758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,27 +508,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6502456239573182097}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 186319aa360744f488f3366c7771c88a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileSpriteList:
-  - {fileID: 3374667702094718158}
-  - {fileID: 2304759019993570997}
-  - {fileID: 5110242073768585097}
-  - {fileID: 2981502242133282147}
+  setObjectList:
   - {fileID: 5003484071723498765}
   - {fileID: 8424482895560332660}
   - {fileID: 8980492825045092350}
   - {fileID: 3657624504285589806}
-  assetTileList:
-  - {fileID: 21300000, guid: 946a16d6b83b36743b0dabcd28a09095, type: 3}
-  - {fileID: 21300000, guid: 8151404eaa712cd4baccdc67ed2b2db5, type: 3}
-  - {fileID: 21300000, guid: 61a7680b123542247afaebbe113319cc, type: 3}
-  - {fileID: 21300000, guid: e56f01c02ddd8a149bf3aae5cb7d61a6, type: 3}
-  - {fileID: 21300000, guid: b0d3491bf67df3c438c07df15099c185, type: 3}
-  - {fileID: 21300000, guid: 5ae57ce27631bab4f9d9dbc3ae22918f, type: 3}
 --- !u!1 &8424482895560332660
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +575,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 7663a8b641233bb40a879d4c79efba0a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -712,7 +652,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 7663a8b641233bb40a879d4c79efba0a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
