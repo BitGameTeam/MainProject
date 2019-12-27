@@ -5,28 +5,23 @@ using UnityEngine;
 public class FloorRandomTile : MonoBehaviour
 {
     [SerializeField]
-    GameObject[] tileSpriteList;
-    [SerializeField]
-    Sprite[] assetTileList;
+    GameObject[] setObjectList;
+
     void Start()
     {
         RandomizeFloorTile();
     }
     void RandomizeFloorTile()
     {
-        for(int i = 0; i < 4; i++)
+        int selectR = Random.Range(0, 20);
+
+        for(int i = 0;  i< setObjectList.Length; i++)
         {
-            int r = Random.Range(0, 3);
-            tileSpriteList[i].GetComponent<SpriteRenderer>().sprite = assetTileList[r];
-            
+            if (selectR == i)
+            {
+                setObjectList[i].SetActive(true);
+            }
         }
-        for(int i = 4; i < 8; i++)
-        {
-            int s = Random.RandomRange(0, 9);
-            if (s == 4)
-                tileSpriteList[i].GetComponent<SpriteRenderer>().sprite = assetTileList[4];
-            if (s == 5)
-                tileSpriteList[i].GetComponent<SpriteRenderer>().sprite = assetTileList[5];
-        }
+        
     }
 }

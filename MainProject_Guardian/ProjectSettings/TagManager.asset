@@ -9,8 +9,11 @@ TagManager:
   - EndBlockObject
   - WallConnectCheck
   - Monsters
-  - SideWall
   - Entrance
+  - SideWall_top
+  - SideWall_left
+  - SideWall_bottom
+  - SideWall_right
   layers:
   - Default
   - TransparentFX
