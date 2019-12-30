@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Animation attack1anim;
     public float rotateSideFloat = 0.0f;
     public float playerSpeed = 1.0f;
+    public float moveSpeed = 0.1f;
     public float crossSpeed = 1.0f;
     public float delayT = 1.0f;
     private float primeDelayT = 1.0f; //delayT의 초기값을 저장하는 중요한 변수
@@ -36,8 +37,13 @@ public class PlayerMovement : MonoBehaviour
     GameObject characterPart;
     public GameObject test;
 
+    protected Joystick joystick;
+    protected Joybutton joybutton;
+
     void Start()
     {
+        joystick = FindObjectOfType<Joystick>();
+        joybutton = FindObjectOfType<Joybutton>();
         playerInfo = this.gameObject.GetComponent<CharacterStatus>();
         skill_Cool_Check = true;
         StartCoroutine(State_Check());
@@ -62,14 +68,13 @@ public class PlayerMovement : MonoBehaviour
         target = Input.mousePosition;
         target = camera.ScreenToWorldPoint(target);
         if (this.transform.position.x > target.x)
-            characterPart.transform.rotation = Quaternion.Euler(50, 0, 0);
+            characterPart.transform.rotation = Quaternion.Euler(90, 0, 0);
         else if (this.transform.position.x < target.x)
-            characterPart.transform.rotation = Quaternion.Euler(220, 0, 180);
+            characterPart.transform.rotation = Quaternion.Euler(270, 90, 90);
     }
     //공격 애니
     private void Attack()
     {
-        
         float animationNum = Random.Range(0, 5);
         switch (animationNum)
         {
@@ -104,21 +109,22 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         playerInfo.playerState = CharacterStatus.State.Move;
-        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+        //Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+        Vector3 movement = new Vector3(joystick.Horizontal, 0.0f, joystick.Vertical);
         crossSpeed = 1.0f;
         if (movement.x > 0)
         {
             animator.SetBool("isRun", true);
             animator.SetBool("isIdle", false);
 
-            characterPart.transform.rotation = Quaternion.Euler(220, 0, 180);
+            characterPart.transform.rotation = Quaternion.Euler(270, 90, 90);
         }
         if (movement.x < 0)
         {
             animator.SetBool("isRun", true);
             animator.SetBool("isIdle", false);
 
-            characterPart.transform.rotation = Quaternion.Euler(50, 0, 0);
+            characterPart.transform.rotation = Quaternion.Euler(90, 0, 0);
         }
         if (movement.x != 0)
         {
@@ -149,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
             #endregion
             crossSpeed = 0.8f;
         }
-        transform.position = transform.position + movement * playerInfo.move_Speed * crossSpeed;
+        transform.position = transform.position + movement * crossSpeed * moveSpeed;
     }
     //스킬 관련 
     private void Skill()
@@ -191,21 +197,21 @@ public class PlayerMovement : MonoBehaviour
     //키보드 키 입력 받음
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (joybutton.Pressed) //Input.GetKeyDown(KeyCode.Mouse0)
         {
-            MouseState();
+            //MouseState();
             playerInfo.playerState = CharacterStatus.State.Attack;
         }
         else if (Input.GetKeyDown(KeyCode.Q) && skill_Cool_Check == true)
         {
-            MouseState();
+            //MouseState();
             PointRotation.instance.Get_Zrot();
             skill_num = 0;
             playerInfo.playerState = CharacterStatus.State.Skill;
         }
         else if (Input.GetKeyDown(KeyCode.E) && skill_Cool_Check == true)
         {
-            MouseState();
+            //MouseState();
             PointRotation.instance.Get_Zrot();
             skill_num = 1;
             playerInfo.playerState = CharacterStatus.State.Skill;
@@ -221,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
             //이동
             if ((int)playerInfo.playerState == 1 || (int)playerInfo.playerState == 2)
             {
-                MouseState();
+                //MouseState();
                 Move();
             }
             //평타
