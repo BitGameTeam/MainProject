@@ -19,6 +19,8 @@ public class DungeonEntrance : MonoBehaviour
     [SerializeField]
     private GameObject[] sideBottomList;
     int rand;
+
+    LoadingBar loadingbar;
         
     private void OnEnable()
     {
@@ -26,6 +28,8 @@ public class DungeonEntrance : MonoBehaviour
         sideLeftList = GameObject.FindGameObjectsWithTag("SideWall_left");
         sideRightList = GameObject.FindGameObjectsWithTag("SideWall_right");
         sideBottomList = GameObject.FindGameObjectsWithTag("SideWall_bottom");
+
+        loadingbar = FindObjectOfType<LoadingBar>();
 
         SetEntranceObj();
     }
@@ -55,6 +59,9 @@ public class DungeonEntrance : MonoBehaviour
             dungeonEntrance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         bossEntrance.GetComponent<BossEntrance>().GetDungeonEntranceSide(rand);
+
+        loadingbar.sliderValue = 0f;
+
     }
 
     void SetEntranceObj() //입구 프리팹과 시작위치 설정

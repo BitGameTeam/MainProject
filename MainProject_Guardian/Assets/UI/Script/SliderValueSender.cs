@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class SliderValueSender : MonoBehaviour {
+
     [SerializeField]
 	private GameObject sliderValueTarget;
     public float maxValue = 100;
@@ -18,8 +19,6 @@ public class SliderValueSender : MonoBehaviour {
                 ShowValueNum();
                 break;
         }
-        
-
     }
     void ShowValuePercentage()
     {
