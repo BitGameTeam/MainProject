@@ -18,12 +18,17 @@ public class BossEntrance : MonoBehaviour
     private GameObject[] sideBottomList;
     int randB;
     int rand;
+
+    LoadingBar loadingbar;
     private void OnEnable()
     {
         sideTopList = GameObject.FindGameObjectsWithTag("SideWall_top");
         sideLeftList = GameObject.FindGameObjectsWithTag("SideWall_left");
         sideRightList = GameObject.FindGameObjectsWithTag("SideWall_right");
         sideBottomList = GameObject.FindGameObjectsWithTag("SideWall_bottom");
+
+
+        loadingbar = FindObjectOfType<LoadingBar>();
 
         SetEntranceObj();
     }
@@ -57,6 +62,8 @@ public class BossEntrance : MonoBehaviour
             bossEntrance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         bossEntrance.GetComponent<BossEntrance>().GetDungeonEntranceSide(r);
+
+        loadingbar.sliderValue = 0f;
     }
 
     void SetEntranceObj() //보스방 입구 프리팹과 시작위치 설정

@@ -16,11 +16,24 @@ namespace PixelArsenal
         //    MyGUI _GUI;
         PixelArsenalButtonScript selectedProjectileButton;
 
+        [SerializeField]
+        Transform shootTarget;
+        [SerializeField]
+        GameObject shootButton;
+        ShootingJoystick sjs;
+
         void Start()
         {
             selectedProjectileButton = GameObject.Find("Button").GetComponent<PixelArsenalButtonScript>();
+            sjs = FindObjectOfType<ShootingJoystick>();
         }
-
+        public void ShootMissile()
+        {
+            GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
+            projectile.transform.LookAt(shootTarget);
+            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
+            projectile.GetComponent<PixelArsenalProjectileScript>().impactNormal = hit.normal;
+        }
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -42,22 +55,33 @@ namespace PixelArsenal
                 previousEffect();
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            //if (Input.GetKeyDown(KeyCode.Mouse0))
+            //{
+
+            //    if (!EventSystem.current.IsPointerOverGameObject())
+            //    {
+            //        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f))
+            //        {
+            //            GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
+            //            projectile.transform.LookAt(hit.point);
+            //            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
+            //            projectile.GetComponent<PixelArsenalProjectileScript>().impactNormal = hit.normal;
+            //        }
+            //    }
+
+            //}
+
+            if (sjs.Horizontal !=0 || sjs.Vertical != 0)
             {
 
-                if (!EventSystem.current.IsPointerOverGameObject())
-                {
-                    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f))
-                    {
-                        GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
-                        projectile.transform.LookAt(hit.point);
-                        projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
-                        projectile.GetComponent<PixelArsenalProjectileScript>().impactNormal = hit.normal;
-                    }
-                }
+                GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
+                projectile.transform.LookAt(shootTarget);
+                projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed);
+                projectile.GetComponent<PixelArsenalProjectileScript>().impactNormal = hit.normal;
 
             }
-            Debug.DrawRay(Camera.main.ScreenPointToRay(Input.mousePosition).origin, Camera.main.ScreenPointToRay(Input.mousePosition).direction * 100, Color.yellow);
+
+            // Debug.DrawRay(Camera.main.ScreenPointToRay(Input.mousePosition).origin, Camera.main.ScreenPointToRay(Input.mousePosition).direction * 100, Color.yellow);
         }
 
         public void nextEffect()

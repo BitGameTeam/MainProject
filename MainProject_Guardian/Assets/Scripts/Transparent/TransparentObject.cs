@@ -34,7 +34,9 @@ public class TransparentObject : MonoBehaviour
                 SpriteRenderer oh_sr = objectH[i].GetComponent<SpriteRenderer>();
                 oh_sr.sortingOrder = 4;
                 Color sr_color = oh_sr.color;
-                sr_color.a = 0.2f;
+                sr_color.a = 0.7f;
+                if(objectH[i].tag == "WallConnectCheck")
+                    sr_color.a = 0f;
                 oh_sr.color = sr_color;
             }
         }

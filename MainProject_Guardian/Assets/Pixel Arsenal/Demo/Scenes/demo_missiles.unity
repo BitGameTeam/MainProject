@@ -221,14 +221,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11409044, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadSceneDemo1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11433854, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadSceneDemo2
-      objectReference: {fileID: 0}
     - target: {fileID: 11445560, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadSceneDemo10
@@ -237,17 +229,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadSceneDemo9
       objectReference: {fileID: 0}
-    - target: {fileID: 11413612, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadSceneDemo7
-      objectReference: {fileID: 0}
     - target: {fileID: 11493556, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadSceneDemo6
       objectReference: {fileID: 0}
-    - target: {fileID: 11457454, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
+    - target: {fileID: 11413612, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadSceneDemo4
+      value: LoadSceneDemo7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433854, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSceneDemo2
       objectReference: {fileID: 0}
     - target: {fileID: 11451442, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -260,6 +252,14 @@ PrefabInstance:
     - target: {fileID: 11451552, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadSceneDemo8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457454, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSceneDemo4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11409044, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSceneDemo1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b6f0fbe6535bc042a6840b4c1cf061b, type: 3}
@@ -539,8 +539,7 @@ MeshFilter:
 --- !u!1 &548404563
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 185628, guid: 3d4c952ce18025945bfd999233eb9195,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -558,8 +557,7 @@ GameObject:
 --- !u!4 &548404564
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 401038, guid: 3d4c952ce18025945bfd999233eb9195,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548404563}
@@ -574,8 +572,7 @@ Transform:
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 19940958, guid: 3d4c952ce18025945bfd999233eb9195,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548404563}
@@ -636,8 +633,7 @@ ParticleSystemRenderer:
 --- !u!198 &548404566
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 19848282, guid: 3d4c952ce18025945bfd999233eb9195,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548404563}
@@ -5283,8 +5279,7 @@ Transform:
 --- !u!1 &967939258
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 154646, guid: 77437478c353d5a4b82eb8efea80dd5f,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -5302,8 +5297,7 @@ GameObject:
 --- !u!4 &967939259
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 461902, guid: 77437478c353d5a4b82eb8efea80dd5f,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967939258}
@@ -5318,8 +5312,7 @@ Transform:
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 19999862, guid: 77437478c353d5a4b82eb8efea80dd5f,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967939258}
@@ -5380,8 +5373,7 @@ ParticleSystemRenderer:
 --- !u!198 &967939261
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 19821686, guid: 77437478c353d5a4b82eb8efea80dd5f,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967939258}
@@ -5734,7 +5726,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -5787,7 +5779,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:

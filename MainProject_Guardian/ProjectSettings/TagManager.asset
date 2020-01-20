@@ -14,6 +14,22 @@ TagManager:
   - SideWall_left
   - SideWall_bottom
   - SideWall_right
+  - Text_002
+  - Spot_001
+  - BG_001
+  - Icon_001
+  - BG_002
+  - Spot_002
+  - BG
+  - Text_001
+  - NumberText
+  - InventoryItem
+  - PercentageText
+  - Projectile
+  - Impact
+  - Missile
+  - Projectile_Trigger
+  - Impact_Trigger
   layers:
   - Default
   - TransparentFX

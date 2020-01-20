@@ -69,7 +69,7 @@ public class CharacterStatus : MonoBehaviour
     {
         instance = this;
         hp_Point = 200f;
-        attack_Point = 3f;
+        attack_Point = 100f;
         attack_Speed = 1.0f;
         move_Speed = 0.06f;
 
