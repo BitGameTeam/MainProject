@@ -58,20 +58,20 @@ public class CharacterUI : MonoBehaviour
         //    ShowPlayerInfo();
         //}
 
-        if (ibm.isInventoryBtn)
-        {
-            inventoryUI.SetActive(true);
-            //ShowInventory();
-        }
-        else
-            inventoryUI.SetActive(false);
-        if (pbm.isPlayerinfoBtn)
-        {
-            playerInfoUi.SetActive(true);
-            //ShowPlayerInfo();
-        }
-        else
-            playerInfoUi.SetActive(false);
+        //if (ibm.isInventoryBtn)
+        //{
+        //    inventoryUI.SetActive(true);
+        //    //ShowInventory();
+        //}
+        //else
+        //    inventoryUI.SetActive(false);
+        //if (pbm.isPlayerinfoBtn)
+        //{
+        //    playerInfoUi.SetActive(true);
+        //    //ShowPlayerInfo();
+        //}
+        //else
+        //    playerInfoUi.SetActive(false);
     }
     //void ShowPlayerInfo()
     //{

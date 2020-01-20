@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PixelArsenal;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +9,13 @@ public class PlayerMobileMovement : MonoBehaviour
     float moveSpeed = 0.05f;
 
     protected Joystick joystick;
-    protected Joybutton joybutton;
+    protected Joybutton_p joybutton;
     Rigidbody rb;
 
     void Start()
     {
         joystick = FindObjectOfType<Joystick>();
-        joybutton = FindObjectOfType<Joybutton>();
+        joybutton = FindObjectOfType<Joybutton_p>();
         rb = GetComponent<Rigidbody>();
     }
 

@@ -6,22 +6,23 @@ public class PixelArsenalProjectileScript : MonoBehaviour
   public GameObject impactParticle;
   public GameObject projectileParticle;
   public GameObject muzzleParticle;
-
+  [SerializeField]
+  GameObject weaponCenterPos;
 
   public GameObject[] trailParticles;
   [HideInInspector]
   public Vector3 impactNormal; //Used to rotate impactparticle.
 
   private bool hasCollided = false;
-
   //changed from start because awake is called before OnCollisionEnter, start isn't.
   void Awake()
   {
+        weaponCenterPos = GameObject.Find("weaponCenterPos");
     projectileParticle = Instantiate(projectileParticle, transform.position, transform.rotation) as GameObject;
     projectileParticle.transform.parent = transform;
     if (muzzleParticle)
     {
-      muzzleParticle = Instantiate(muzzleParticle, transform.position, transform.rotation) as GameObject;
+      muzzleParticle = Instantiate(muzzleParticle, transform.position, weaponCenterPos.transform.rotation) as GameObject;
       Destroy(muzzleParticle, 1.5f); // Lifetime of muzzle effect.
     }
   }
@@ -44,8 +45,8 @@ public class PixelArsenalProjectileScript : MonoBehaviour
         curTrail.transform.parent = null;
         Destroy(curTrail, 3f);
       }
-      Destroy(projectileParticle, 3f);
-      Destroy(impactParticle, 5f);
+      Destroy(projectileParticle, 2f);
+      Destroy(impactParticle, 1f);
       Destroy(gameObject);
 
       ParticleSystem[] trails = GetComponentsInChildren<ParticleSystem>();

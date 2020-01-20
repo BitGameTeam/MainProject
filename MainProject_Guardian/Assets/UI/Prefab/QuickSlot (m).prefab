@@ -149,10 +149,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &7373489849405970313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,15 +642,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7373489848956880795}
     m_Modifications:
-    - target: {fileID: 1696204648198409528, guid: 74ac973942c13444a9567be7dbaf09cf,
-        type: 3}
-      propertyPath: m_Name
-      value: ItemImage1
-      objectReference: {fileID: 0}
     - target: {fileID: 4204209816007549764, guid: 74ac973942c13444a9567be7dbaf09cf,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696204648198409528, guid: 74ac973942c13444a9567be7dbaf09cf,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemImage1
       objectReference: {fileID: 0}
     - target: {fileID: 1696204648198409531, guid: 74ac973942c13444a9567be7dbaf09cf,
         type: 3}

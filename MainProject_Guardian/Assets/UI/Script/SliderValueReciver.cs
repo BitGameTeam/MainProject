@@ -8,15 +8,13 @@ public class SliderValueReciver : MonoBehaviour {
 
 	public float SliderValue = 0f;
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-		SliderValue = SliderController.GetComponent<Slider>().value;
+	void Update ()
+    {
 
 		transform.GetComponent<Slider> ().value = SliderValue;
 	}
