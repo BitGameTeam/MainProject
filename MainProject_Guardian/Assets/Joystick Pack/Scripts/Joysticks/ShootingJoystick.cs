@@ -80,6 +80,16 @@ public class ShootingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);
         handle.anchoredPosition = input * radius * handleRange;
+
+        float radian = CalculateRadian();
+        if (radian >= 0.9f)
+        {
+            shootingManager.isEndpoint = true;
+        }
+        else if(0f < radian && radian < 0.9f)
+        {
+            shootingManager.isEndpoint = false;
+        }
     }
 
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
@@ -141,7 +151,7 @@ public class ShootingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
         FormatInput();
-
+        shootingManager.isEndpoint = false;
         shootingManager.CheckJoystickUp(true);
     }
 
@@ -154,6 +164,19 @@ public class ShootingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
             return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
         }
         return Vector2.zero;
+    }
+
+    float CalculateRadian()
+    {
+        float h = Horizontal;
+        if (h <= 0)
+            h = -h;
+        float a = Mathf.Atan(Vertical / Horizontal); //원 각도 구함
+        //각도를 이용하여 cos사용하고 점과 중점사이의 거리를 구함
+        float r = h / Mathf.Cos(a);
+        //거리가 0.9 이상일때만 스킬 사용
+
+        return r;
     }
 }
 
