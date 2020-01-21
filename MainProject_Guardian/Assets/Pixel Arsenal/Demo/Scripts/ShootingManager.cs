@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ShootingManager : MonoBehaviour
 {
-    
-    
     public GameObject[] projectiles;
     public Transform spawnPosition;
     public Transform spawnPos_Left1;
@@ -31,6 +29,7 @@ public class ShootingManager : MonoBehaviour
     public GameObject chargeSlider;
     [SerializeField]
     GameObject[] coolUIList;
+    public bool isEndpoint = false;
     #endregion
 
     #region 차징스킬 변수
@@ -164,7 +163,7 @@ public class ShootingManager : MonoBehaviour
     {
         isPointerUp = upCheck;
     }
-    void Update()
+    void FixedUpdate()
     {
         #region 쿨타임
         Decrease_Current_Cool();
@@ -194,30 +193,52 @@ public class ShootingManager : MonoBehaviour
             previousEffect();
         }
 
-        float radian = CalculateRadian();
-        
-        if (radian >= 0.9f)
+        //float radian = CalculateRadian();
+
+        //if (radian >= 0.9f)
+        //{
+        //    if(skillType == SkillType.None)
+        //        ShootMissile();
+        //    else if(skillType == SkillType.Charge)
+        //    {
+        //        if (skill1_cool_check == true)
+        //        StartCoroutine( Skill_Charging());
+        //    }
+        //    else if (skillType == SkillType.Spread)
+        //        ShootMissile();
+        //}
+        //else if (0f < radian && radian < 0.9f)
+        //{
+        //    if(skillType == SkillType.Charge)
+        //    {
+        //        StopCoroutine(Skill_Charging());
+        //        currentCharge = 0f;
+        //        isCharge = false;
+        //    }
+        //}
+
+        if (isEndpoint == true)
         {
-            if(skillType == SkillType.None)
+            if (skillType == SkillType.None)
                 ShootMissile();
-            else if(skillType == SkillType.Charge)
+            else if (skillType == SkillType.Charge)
             {
                 if (skill1_cool_check == true)
-                StartCoroutine( Skill_Charging());
+                    StartCoroutine(Skill_Charging());
             }
             else if (skillType == SkillType.Spread)
                 ShootMissile();
         }
-        else if (0f < radian && radian < 0.9f)
+        else if (isEndpoint == false)
         {
-            if(skillType == SkillType.Charge)
+            if (skillType == SkillType.Charge)
             {
                 StopCoroutine(Skill_Charging());
                 currentCharge = 0f;
                 isCharge = false;
             }
         }
-        if(isPointerUp == true)
+        if (isPointerUp == true)
         {
             if(isCharge == true)
             {
@@ -228,18 +249,7 @@ public class ShootingManager : MonoBehaviour
         }
     }
     
-    float CalculateRadian()
-    {
-        float h = sjs.Horizontal;
-        if (h <= 0)
-            h = -h;
-        float a = Mathf.Atan(sjs.Vertical / sjs.Horizontal); //원 각도 구함
-        //각도를 이용하여 cos사용하고 점과 중점사이의 거리를 구함
-        float r = h / Mathf.Cos(a);
-        //거리가 0.9 이상일때만 스킬 사용
 
-        return r;
-    }
 
     public void nextEffect()
     {

@@ -80,6 +80,16 @@ public class MovementJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);
         handle.anchoredPosition = input * radius * handleRange;
+
+        if(Vertical < 0f)
+        {
+            playerMovement.turnBack = false;
+        }
+        else if (Vertical >0f)
+        {
+            playerMovement.turnBack = true;
+        }
+
     }
 
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)

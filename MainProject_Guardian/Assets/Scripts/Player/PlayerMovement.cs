@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    #region 애니메이션 오브젝트 (캐릭터 파츠)
+    #region 캐릭터 정면 파츠
+    [Header("----정면 파츠")]
     [SerializeField]
     GameObject player_body_front;
     [SerializeField]
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     GameObject player_lTale;
     [SerializeField]
     GameObject player_rTale;
+    [SerializeField]
+    GameObject player_eye;
     [SerializeField]
     GameObject player_eye1;
     [SerializeField]
@@ -35,12 +38,32 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     GameObject player_rFoot;
     #endregion
+    #region 캐릭터 후면 파츠
+    [Header ("----후면 파츠")]
+    [SerializeField]
+    GameObject player_body_back;
+    [SerializeField]
+    GameObject player_head_back;
+    [SerializeField]
+    GameObject player_lTale_back;
+    [SerializeField]
+    GameObject player_rTale_back;
+    [SerializeField]
+    GameObject player_lHand_back;
+    [SerializeField]
+    GameObject player_rHand_back;
+    #endregion
+    [Header ("----게임 오브젝트(not quad or sprite)")]
+    [SerializeField]
+    GameObject leftHand;
+    [SerializeField]
+    GameObject rightHand;
+    [SerializeField]
+    GameObject s_StickRotation;
+
     #region 변수들 (애니메이션에 필요)
     public Animator top_front_animator;
     public Animator bottom_front_animator;
-    public Animator top_back_animator;
-    public Animator bottom_back_animator;
-    public Animation attack1anim;
     public float rotateSideFloat = 0.0f;
     public float playerSpeed = 1.0f;
     public float moveSpeed = 0.1f;
@@ -65,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 mouse_Position;
     bool isPointerUp = true;
     bool turnRight = false;
+    public bool turnBack = false;
 
     [SerializeField]
     private float z_pos;
@@ -84,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        s_StickRotation = GameObject.Find("S_StickRotation");
         joystick = FindObjectOfType<MovementJoystick>();
         sJoystick = FindObjectOfType<ShootingJoystick>();
         playerInfo = this.gameObject.GetComponent<CharacterStatus>();
@@ -158,13 +183,13 @@ public class PlayerMovement : MonoBehaviour
         {
             turnRight = true;
             characterPart.transform.rotation = Quaternion.Euler(300, 180, 00);
-            RotatePlayerBody();
+            RotatePlayerX();
         }
-        if (movement.x < 0)
+        else if (movement.x < 0)
         {
             turnRight = false;
             characterPart.transform.rotation = Quaternion.Euler(60, 0, 0);
-            RotatePlayerBody();
+            RotatePlayerX();
         }
         if (movement.x != 0)
         {
@@ -174,9 +199,20 @@ public class PlayerMovement : MonoBehaviour
         }
         if (movement.z != 0)
         {
+            
             #region 프리징
             rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             #endregion
+        }
+        if(movement.z > 0)
+        {
+            turnBack = true;
+            RotatePlayerZ();
+        }
+        else if(movement.z < 0)
+        {
+            turnBack = false;
+            RotatePlayerZ();
         }
         if ((movement.x == 0) && (movement.z == 0))
         {
@@ -251,7 +287,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isPointerUp = upCheck;
     }
-    void RotatePlayerBody()
+    void RotatePlayerX()
     {
         if(turnRight == true)
         {
@@ -269,6 +305,13 @@ public class PlayerMovement : MonoBehaviour
             player_bottom_rLeg.transform.localPosition = new Vector3(player_bottom_rLeg.transform.localPosition.x, player_bottom_rLeg.transform.localPosition.y, -0.003f);
             player_lFoot.transform.localPosition = new Vector3(player_lFoot.transform.localPosition.x, player_lFoot.transform.localPosition.y, -0.01f);
             player_rFoot.transform.localPosition = new Vector3(player_rFoot.transform.localPosition.x, player_rFoot.transform.localPosition.y, -0.01f);
+
+            player_head_back.transform.localPosition = new Vector3(player_head_back.transform.localPosition.x, player_head_back.transform.localPosition.y, 0.01f);
+            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, 0.01f);
+            player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, 0.06f);
+            player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, -0.03f);
+            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, 0.03f);
+            player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, -0.03f);
         }
         else
         {
@@ -285,9 +328,61 @@ public class PlayerMovement : MonoBehaviour
             player_bottom_rLeg.transform.localPosition = new Vector3(player_bottom_rLeg.transform.localPosition.x, player_bottom_rLeg.transform.localPosition.y, 0f);
             player_lFoot.transform.localPosition = new Vector3(player_lFoot.transform.localPosition.x, player_lFoot.transform.localPosition.y, 0f);
             player_rFoot.transform.localPosition = new Vector3(player_rFoot.transform.localPosition.x, player_rFoot.transform.localPosition.y, 0f);
+
+            player_head_back.transform.localPosition = new Vector3(player_head_back.transform.localPosition.x, player_head_back.transform.localPosition.y, 0f);
+            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, -0.005f);
+            player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, -0.04f);
+            player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, 0.05f);
+            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, -0.01f);
+            player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, 0.01f);
         }
-        
     }
+    void RotatePlayerZ()
+    {
+        if(turnBack == true)
+        {
+            player_head_front.SetActive(false);
+            player_eye.SetActive(false);
+            player_body_front.SetActive(false);
+            player_lTale.SetActive(false);
+            player_rTale.SetActive(false);
+            player_lHand.SetActive(false);
+            player_rHand.SetActive(false);
+
+            player_head_back.SetActive(true);
+            player_body_back.SetActive(true);
+            player_lHand_back.SetActive(true);
+            player_rHand_back.SetActive(true);
+            player_lTale_back.SetActive(true);
+            player_rTale_back.SetActive(true);
+        }
+        else
+        {
+            player_head_front.SetActive(true);
+            player_eye.SetActive(true);
+            player_body_front.SetActive(true);
+            player_lTale.SetActive(true);
+            player_rTale.SetActive(true);
+            player_lHand.SetActive(true);
+            player_rHand.SetActive(true);
+
+            player_head_back.SetActive(false);
+            player_body_back.SetActive(false);
+            player_lHand_back.SetActive(false);
+            player_rHand_back.SetActive(false);
+            player_lTale_back.SetActive(false);
+            player_rTale_back.SetActive(false);
+        }
+    }
+    void RotatePlayerArms()
+    {
+        top_front_animator.StopPlayback();
+        float convertXtoZ;
+        convertXtoZ = s_StickRotation.transform.rotation.x;
+        leftHand.transform.localRotation = new Quaternion(0, 0, convertXtoZ, 0);
+
+    }
+
     //스킬 관련 
     //private void Skill()
     //{
@@ -384,4 +479,5 @@ public class PlayerMovement : MonoBehaviour
         skill_Cool_Check = true;
         StopCoroutine(Skill_Cool_Wait());
     }
+
 }
