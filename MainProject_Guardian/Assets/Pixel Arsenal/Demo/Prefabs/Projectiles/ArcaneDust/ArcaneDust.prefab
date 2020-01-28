@@ -91,10 +91,14 @@ MonoBehaviour:
   coolTime: 0.4
   type: 0
   damage: 0
+  missileLifeT: 0.5
+  manaCost: 15
+  chargeMax: 0
   chargeMulti: 0
   increaseSpeedMulti: 0
   increasePowerMulti: 0
-  missileLifeT: 0.5
+  penetrateAble: 0
+  isSplash: 0
   impactParticle: {fileID: 158594, guid: 4514898663fbb0148a8a2179f728db48, type: 3}
   projectileParticle: {fileID: 137968, guid: 18302445418a3d04aa3d8d4815ae9f11, type: 3}
   muzzleParticle: {fileID: 111062, guid: d526bbe220688b249afce4cfc8951571, type: 3}

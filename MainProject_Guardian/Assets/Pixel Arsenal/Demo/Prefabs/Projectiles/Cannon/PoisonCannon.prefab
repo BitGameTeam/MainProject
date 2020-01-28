@@ -92,6 +92,7 @@ MonoBehaviour:
   type: 1
   damage: 0
   missileLifeT: 1
+  manaCost: 40
   chargeMax: 1
   chargeMulti: 1.5
   increaseSpeedMulti: 1600

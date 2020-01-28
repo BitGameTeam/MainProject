@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class ShootingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     ShootingManager shootingManager;
-
+    PlayerMovement playerMovement;
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, s_AxisOption.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, s_AxisOption.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
@@ -45,7 +45,7 @@ public class ShootingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
     protected virtual void Start()
     {
         shootingManager = GameObject.FindObjectOfType<ShootingManager>().GetComponent<ShootingManager>();
-
+        playerMovement = GameObject.FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>();
         HandleRange = handleRange;
         DeadZone = deadZone;
         baseRect = GetComponent<RectTransform>();
@@ -63,11 +63,14 @@ public class ShootingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
+        playerMovement.isAttack = true;
+        shootingManager.CheckJoystickUp(false);
         OnDrag(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        playerMovement.isAttack = true;
         shootingManager.CheckJoystickUp(false);
 
         cam = null;
@@ -81,17 +84,38 @@ public class ShootingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
         HandleInput(input.magnitude, input.normalized, radius, cam);
         handle.anchoredPosition = input * radius * handleRange;
 
+        
+    }
+    private void FixedUpdate()
+    {
+        if (Vertical > 0)
+        {
+            playerMovement.turnBack = true;
+        }
+        else if (Vertical < 0)
+        {
+            playerMovement.turnBack = false;
+        }
+
+        if (Horizontal > 0)
+        {
+            playerMovement.turnRight_attack = true;
+        }
+        else if (Horizontal < 0)
+        {
+            playerMovement.turnRight_attack = false;
+        }
+
         float radian = CalculateRadian();
         if (radian >= 0.9f)
         {
             shootingManager.isEndpoint = true;
         }
-        else if(0f < radian && radian < 0.9f)
+        else if (0f < radian && radian < 0.9f)
         {
             shootingManager.isEndpoint = false;
         }
     }
-
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
         if (magnitude > deadZone)
@@ -153,6 +177,7 @@ public class ShootingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
         FormatInput();
         shootingManager.isEndpoint = false;
         shootingManager.CheckJoystickUp(true);
+        playerMovement.isAttack = false;
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)

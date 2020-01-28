@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5461848}
   - component: {fileID: 13541744}
   - component: {fileID: 3382448}
-  - component: {fileID: 11478778}
   - component: {fileID: 114618710503327850}
   m_Layer: 0
   m_Name: LightningPlasma
@@ -72,24 +71,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186734}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11478778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3cc8b7b878ebb4ab887d9e05be4b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactParticle: {fileID: 156058, guid: e97f12ad00910c143b5a173d2c32e75b, type: 3}
-  projectileParticle: {fileID: 114778, guid: ce293cfc081257142826125d147b71a1, type: 3}
-  muzzleParticle: {fileID: 117272, guid: d7126eb1f314a3348ba7ceaee808123f, type: 3}
-  weaponCenterPos: {fileID: 0}
-  trailParticles: []
-  impactNormal: {x: 0, y: 0, z: 0}
 --- !u!114 &114618710503327850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153a931235176a644b2445a77f06435a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0.5
+  power: 1
   distance: 0
   rank: 1
   element: 4
@@ -111,10 +92,12 @@ MonoBehaviour:
   type: 0
   damage: 0
   missileLifeT: 0.7
+  manaCost: 15
   chargeMax: 0
   chargeMulti: 0
   increaseSpeedMulti: 0
   increasePowerMulti: 0
+  penetrateAble: 0
   isSplash: 0
   impactParticle: {fileID: 156058, guid: e97f12ad00910c143b5a173d2c32e75b, type: 3}
   projectileParticle: {fileID: 114778, guid: ce293cfc081257142826125d147b71a1, type: 3}

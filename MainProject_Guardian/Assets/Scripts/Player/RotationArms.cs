@@ -24,16 +24,24 @@ public class RotationArms : MonoBehaviour
     ConvexPolygonAlgorithm cpa;
     private List<float[]> pointList;
 
+    [SerializeField]
+    Transform weaponCenterPos;
+    [SerializeField]
+    Transform uiCenterPos;
 
-    private void Start()
+    public GameObject s_StickRotation;
+
+    private void Awake()
     {
-        
+        s_StickRotation = GameObject.Find("S_StickRotation");
+        uiCenterPos = s_StickRotation.transform;
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        GetAngleAndRadius();
-        RotateAndScaleArms();
+        weaponCenterPos.rotation = uiCenterPos.rotation;
+        //GetAngleAndRadius();
+        //RotateAndScaleArms();
     }
 
     void GetEllipseEquationPos()    //타원방정식 구하는 클래스로부터 타원 좌표 받아오는 함수
@@ -47,9 +55,10 @@ public class RotationArms : MonoBehaviour
 
     void RotateAndScaleArms()
     {
-        leftArm.transform.localRotation = new Quaternion(0, 0, leftArmAR[0], 1);
+        
+        //leftArm.transform.localRotation = new Quaternion(0, 0, leftArmAR[0], 1);
         leftArm.transform.localScale = new Vector3(leftArmAR[1] * scaleMulti, leftArmAR[1] * scaleMulti, 0.1f);
-        rightArm.transform.localRotation = new Quaternion(0, 0, rightArmAR[0], 1);
+        //rightArm.transform.localRotation = new Quaternion(0, 0, rightArmAR[0], 1);
         rightArm.transform.localScale = new Vector3(rightArmAR[1] * scaleMulti, rightArmAR[1] * scaleMulti, 0.1f);
     }
 
@@ -62,10 +71,10 @@ public class RotationArms : MonoBehaviour
     float[] CalculateAngleAndRadius(GameObject arm)
     {
         float h = arm.transform.position.x - twoHandConnectPoint.transform.position.x;
-        float v = arm.transform.position.y - twoHandConnectPoint.transform.position.y;
-        if (h <= 0)
+        float v = arm.transform.position.z - twoHandConnectPoint.transform.position.z;
+        if (h < 0)
             h = -h;
-        if (v <= 0)
+        if (v < 0)
             v = -v;
         float angle = Mathf.Atan(v / h); //각도 구함
         //각도를 이용하여 cos사용하고 점과 중점사이의 거리를 구함

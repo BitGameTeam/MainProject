@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/aonos/Desktop/test3apk.apk
+C:/Users/aonos/Desktop/prototype_0.1.apk
 SceneListBegin?
 Assets/Scenes/DungeonScene.unity
 SceneListEnd?
@@ -68,6 +68,8 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 1620a2c70e87394a632782556e176316 Assembly-CSharp.dll:.SkillProjectile
 d3c76b14a25eebd3a3323dd43297919c Unity.TextMeshPro.dll:TMPro.TMP_InputField
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DragUi
+71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
+71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 507174d46dacbc5fe45e28485db5dd1e UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -106,7 +108,8 @@ a88712ef4afac3bd710f861580fddc39 Assembly-CSharp.dll:.Player
 8d4458b476a9a4dd8df843a849fcfffa Assembly-CSharp.dll:UnityEngine.AI.NavMeshSurface
 6557ec88c66cfe72bd7300db7e685b34 Assembly-CSharp.dll:.ColorManager
 a3b57af1d25e3d5ddb287c67498833d2 Assembly-CSharp.dll:.Inventory
-97fbfd1d72640347cab0cd638e40de43 Assembly-CSharp.dll:.ShootingManager
+4ccc04626999b46c74bacce967a6671d Assembly-CSharp.dll:.ShootingManager
+d8134d8724ce68716492e4cf46d104ba Assembly-CSharp.dll:.MonsterSpawn
 9e27f44bbf48228f203a37254d40f8ae Assembly-CSharp.dll:.JoystickSetterExample
 49de60da4bbcf54e516d84201597d1fa Assembly-CSharp.dll:.LoadingBar
 6007b677249712cdec8c05314e2c0a9f Assembly-CSharp.dll:.PointRotation
@@ -142,6 +145,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 cba13889c1669b699bf05f055c146d08 Assembly-CSharp.dll:.SkillManagement
 ae127cdd4a49107d0149cf31e11a67ee Assembly-CSharp.dll:.InventoryBtnMobile
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ConvexPolygonAlgorithm
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PaletteApply
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DamageT
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
@@ -180,8 +184,9 @@ f4edb8e98735501349506a15a3fa9baa Assembly-CSharp.dll:.SelfDestruct
 1752ebc61eba34c26abaa58fe75075e3 Assembly-CSharp.dll:.GameManager
 562ca269d5a103bbf4e1f2e46a1dcb7e Assembly-CSharp.dll:PixelArsenal.Joybutton_p
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SKill_nando
+e7f032295accfeb266f8ce2c3ff0185c Assembly-CSharp.dll:.RotationArms
 f9f8913dc3d7d350646813593d7f5cce Assembly-CSharp.dll:.Spawner
-73c9c3a13d2324a3f519c1206356d495 Assembly-CSharp.dll:.PlayerMovement
+0015b279cb25f0577ce98f7f90124d5f Assembly-CSharp.dll:.PlayerMovement
 6ee0e79fe2097521fb15216826262e2b Assembly-CSharp.dll:.SoundLibrary
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -226,7 +231,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 459b50185a167c1d210a783633c72823 Assembly-CSharp.dll:.PlayerMobileMovement
 8e5e00ca42eeebc1eae2f91fabb1ee02 Assembly-CSharp.dll:PixelArsenal.PixelArsenalButtonScript
-4e78572660a296febd4674c46e58fb0a Assembly-CSharp.dll:.MonsterTest
+1f26a379a771ac6b8ee5efee59536912 Assembly-CSharp.dll:.MonsterTest
 23dfd67d8e72f07cec4edd0ae2a5de13 Assembly-CSharp.dll:.TransparentObject
 d89d9bf98a5019dd34210919c6414557 Assembly-CSharp.dll:.Crosshairs
 3b760e6526e13f7504f59e210145899a Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI

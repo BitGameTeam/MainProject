@@ -1004,6 +1004,7 @@ GameObject:
   - component: {fileID: 6791381252625210153}
   - component: {fileID: 6791381252625210158}
   - component: {fileID: 2840169160511917921}
+  - component: {fileID: 2269671623223430942}
   m_Layer: 10
   m_Name: Wall 1
   m_TagString: BlockObject
@@ -1103,6 +1104,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &2269671623223430942
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791381252625210159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5509609, z: 1}
+  m_Center: {x: 0, y: 1.1135335, z: 0}
 --- !u!1 &7051972445096328499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,15 +1641,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc394766bc504a4da4ac190c0903d50, type: 3}
---- !u!1 &4195013155443517185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2740382268061251045, guid: 9bc394766bc504a4da4ac190c0903d50,
-    type: 3}
-  m_PrefabInstance: {fileID: 2031234595543634660}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4195013155443517190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2740382268061251042, guid: 9bc394766bc504a4da4ac190c0903d50,
+    type: 3}
+  m_PrefabInstance: {fileID: 2031234595543634660}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4195013155443517185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2740382268061251045, guid: 9bc394766bc504a4da4ac190c0903d50,
     type: 3}
   m_PrefabInstance: {fileID: 2031234595543634660}
   m_PrefabAsset: {fileID: 0}
