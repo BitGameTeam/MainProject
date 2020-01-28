@@ -564,7 +564,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 1
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -9365,7 +9365,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109840}
   serializedVersion: 6
-  lengthInSec: 0.2
+  lengthInSec: 0.09
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 1
@@ -9440,8 +9440,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.19999999
-      minScalar: 0.15
+      scalar: 0.09
+      minScalar: 0.09
       maxCurve:
         serializedVersion: 2
         m_Curve:

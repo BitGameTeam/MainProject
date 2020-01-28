@@ -59,7 +59,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     GameObject rightHand;
     [SerializeField]
-    GameObject s_StickRotation;
+    GameObject weapon;
+
 
     #region 변수들 (애니메이션에 필요)
     public Animator top_front_animator;
@@ -87,15 +88,20 @@ public class PlayerMovement : MonoBehaviour
     #endregion
     Vector3 mouse_Position;
     bool isPointerUp = true;
-    bool turnRight = false;
+    public bool isMove = false;
+    public bool turnRight_move = false;
+    public bool isAttack = false;
     public bool turnBack = false;
+    public bool turnRight_attack = false;
 
     [SerializeField]
     private float z_pos;
     [SerializeField]
     Rigidbody rg;
     [SerializeField]
-    GameObject characterPart;
+    GameObject bottomParts;
+    [SerializeField]
+    GameObject topParts;
     public GameObject test;
 
     [SerializeField]
@@ -106,9 +112,12 @@ public class PlayerMovement : MonoBehaviour
     public float smooth = 2.0F;
     public float tiltAngle = 30.0F;
 
+    #region 튜토리얼 관련 변수
+    public bool t_moveAble = false;
+    #endregion
+
     void Start()
     {
-        s_StickRotation = GameObject.Find("S_StickRotation");
         joystick = FindObjectOfType<MovementJoystick>();
         sJoystick = FindObjectOfType<ShootingJoystick>();
         playerInfo = this.gameObject.GetComponent<CharacterStatus>();
@@ -175,22 +184,13 @@ public class PlayerMovement : MonoBehaviour
     //움직임 애니
     private void Move()
     {
+        if(t_moveAble == true)
+        {
+
         playerInfo.playerState = CharacterStatus.State.Move;
         //Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
         Vector3 movement = new Vector3(joystick.Horizontal, 0.0f, joystick.Vertical);
         crossSpeed = 1.0f;
-        if (movement.x > 0)
-        {
-            turnRight = true;
-            characterPart.transform.rotation = Quaternion.Euler(300, 180, 00);
-            RotatePlayerX();
-        }
-        else if (movement.x < 0)
-        {
-            turnRight = false;
-            characterPart.transform.rotation = Quaternion.Euler(60, 0, 0);
-            RotatePlayerX();
-        }
         if (movement.x != 0)
         {
             #region 프리징
@@ -199,20 +199,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (movement.z != 0)
         {
-            
             #region 프리징
             rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             #endregion
-        }
-        if(movement.z > 0)
-        {
-            turnBack = true;
-            RotatePlayerZ();
-        }
-        else if(movement.z < 0)
-        {
-            turnBack = false;
-            RotatePlayerZ();
         }
         if ((movement.x == 0) && (movement.z == 0))
         {
@@ -226,6 +215,84 @@ public class PlayerMovement : MonoBehaviour
             rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             #endregion
             crossSpeed = 0.8f;
+        }
+        
+        
+        if(isMove)
+        {
+            if (turnRight_move == true)
+            {
+                if (isAttack == true)
+                {
+                    bottomParts.transform.localRotation = Quaternion.Euler(0, -180, 0);
+                    RotateOnlyTopX();
+                }
+                else
+                {
+                    turnRight_attack = false;
+                    topParts.transform.localRotation = Quaternion.Euler(0, -180, 0);
+                    bottomParts.transform.localRotation = Quaternion.Euler(0, -180, 0);
+                    RotateTotalX();
+                }
+            }
+            else
+            {
+                if (isAttack == true)
+                {
+                    bottomParts.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    RotateOnlyTopX();
+                }
+                else
+                {
+                    turnRight_attack = false;
+                    topParts.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    bottomParts.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    RotateTotalX();
+                }
+            }
+           
+        }
+        if (isAttack == true)
+        {
+            if (turnRight_attack == true)
+            {
+                if (isMove == true)
+                {
+                    topParts.transform.localRotation = Quaternion.Euler(0, -180, 0);
+                    RotateOnlyTopX();
+                }
+                else
+                {
+                    turnRight_move = false;
+                    topParts.transform.localRotation = Quaternion.Euler(0, -180, 0);
+                    bottomParts.transform.localRotation = Quaternion.Euler(0, -180, 0);
+                    RotateTotalX();
+                }
+            }
+            else
+            {
+                if (isMove == true)
+                {
+                    topParts.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    RotateOnlyTopX();
+                }
+                else
+                {
+                    turnRight_move = false;
+                    topParts.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    bottomParts.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    RotateTotalX();
+                }
+            }
+        }
+
+        if (turnBack == true)
+        {
+            RotateTotalZ();
+        }
+        else
+        {
+            RotateTotalZ();
         }
 
         //이동스틱에 따른 움직임 애니메이션 변화 (걷기, 뛰기)
@@ -244,7 +311,7 @@ public class PlayerMovement : MonoBehaviour
             bottom_front_animator.SetBool("_bRun", false);
             #endregion
         }
-        else if (0.8f < radian)              //뛰기
+        else if (0.5f < radian)              //뛰기
         {
             #region 상체 애니메이션
             top_front_animator.SetBool("_Walk", false);
@@ -271,6 +338,8 @@ public class PlayerMovement : MonoBehaviour
             #endregion
         }
         transform.position = transform.position + movement * crossSpeed * moveSpeed;
+
+        }
     }
     float CalculateRadian()
     {
@@ -287,9 +356,9 @@ public class PlayerMovement : MonoBehaviour
     {
         isPointerUp = upCheck;
     }
-    void RotatePlayerX()
+    void RotateTotalX()
     {
-        if(turnRight == true)
+        if(turnRight_move == true || turnRight_attack == true)
         {
             player_head_front.transform.localPosition = new Vector3(player_head_front.transform.localPosition.x, player_head_front.transform.localPosition.y, 0.01f);
             player_body_front.transform.localPosition = new Vector3(player_body_front.transform.localPosition.x, player_body_front.transform.localPosition.y, -0.01f);
@@ -299,21 +368,22 @@ public class PlayerMovement : MonoBehaviour
             player_rTale.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, 0.06f);
             player_lHand.transform.localPosition = new Vector3(player_lHand.transform.localPosition.x, player_lHand.transform.localPosition.y, -0.04f);
             player_rHand.transform.localPosition = new Vector3(player_rHand.transform.localPosition.x, player_rHand.transform.localPosition.y, 0.02f);
-            player_top_lLeg.transform.localPosition = new Vector3(player_top_lLeg.transform.localPosition.x, player_top_lLeg.transform.localPosition.y, -0.003f);
-            player_top_rLeg.transform.localPosition = new Vector3(player_top_rLeg.transform.localPosition.x, player_top_rLeg.transform.localPosition.y, -0.003f);
-            player_bottom_lLeg.transform.localPosition = new Vector3(player_bottom_lLeg.transform.localPosition.x, player_bottom_lLeg.transform.localPosition.y, -0.003f);
-            player_bottom_rLeg.transform.localPosition = new Vector3(player_bottom_rLeg.transform.localPosition.x, player_bottom_rLeg.transform.localPosition.y, -0.003f);
+
+            player_top_lLeg.transform.localPosition = new Vector3(player_top_lLeg.transform.localPosition.x, player_top_lLeg.transform.localPosition.y, -0.03f);
+            player_top_rLeg.transform.localPosition = new Vector3(player_top_rLeg.transform.localPosition.x, player_top_rLeg.transform.localPosition.y, -0.03f);
+            player_bottom_lLeg.transform.localPosition = new Vector3(player_bottom_lLeg.transform.localPosition.x, player_bottom_lLeg.transform.localPosition.y, -0.03f);
+            player_bottom_rLeg.transform.localPosition = new Vector3(player_bottom_rLeg.transform.localPosition.x, player_bottom_rLeg.transform.localPosition.y, -0.03f);
             player_lFoot.transform.localPosition = new Vector3(player_lFoot.transform.localPosition.x, player_lFoot.transform.localPosition.y, -0.01f);
             player_rFoot.transform.localPosition = new Vector3(player_rFoot.transform.localPosition.x, player_rFoot.transform.localPosition.y, -0.01f);
 
             player_head_back.transform.localPosition = new Vector3(player_head_back.transform.localPosition.x, player_head_back.transform.localPosition.y, 0.01f);
-            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, 0.01f);
+            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, 0.05f);
             player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, 0.06f);
             player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, -0.03f);
-            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, 0.03f);
+            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, 0.06f);
             player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, -0.03f);
         }
-        else
+        else if (turnRight_move == false || turnRight_attack == false)
         {
             player_head_front.transform.localPosition = new Vector3(player_head_front.transform.localPosition.x, player_head_front.transform.localPosition.y, -0.02f);
             player_eye1.transform.localPosition = new Vector3(player_eye1.transform.localPosition.x, player_eye1.transform.localPosition.y, 0f);
@@ -322,6 +392,7 @@ public class PlayerMovement : MonoBehaviour
             player_rTale.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, 0f);
             player_lHand.transform.localPosition = new Vector3(player_lHand.transform.localPosition.x, player_lHand.transform.localPosition.y, 0.01f);
             player_rHand.transform.localPosition = new Vector3(player_rHand.transform.localPosition.x, player_rHand.transform.localPosition.y, -0.03f);
+
             player_top_lLeg.transform.localPosition = new Vector3(player_top_lLeg.transform.localPosition.x, player_top_lLeg.transform.localPosition.y, 0f);
             player_top_rLeg.transform.localPosition = new Vector3(player_top_rLeg.transform.localPosition.x, player_top_rLeg.transform.localPosition.y, 0f);
             player_bottom_lLeg.transform.localPosition = new Vector3(player_bottom_lLeg.transform.localPosition.x, player_bottom_lLeg.transform.localPosition.y, 0f);
@@ -336,8 +407,48 @@ public class PlayerMovement : MonoBehaviour
             player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, -0.01f);
             player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, 0.01f);
         }
+
     }
-    void RotatePlayerZ()
+    void RotateOnlyTopX()
+    {
+        if (turnRight_attack == true)
+        {
+            player_head_front.transform.localPosition = new Vector3(player_head_front.transform.localPosition.x, player_head_front.transform.localPosition.y, 0.01f);
+            player_body_front.transform.localPosition = new Vector3(player_body_front.transform.localPosition.x, player_body_front.transform.localPosition.y, -0.01f);
+            player_eye1.transform.localPosition = new Vector3(player_eye1.transform.localPosition.x, player_eye1.transform.localPosition.y, 0.05f);
+            player_eye2.transform.localPosition = new Vector3(player_eye2.transform.localPosition.x, player_eye2.transform.localPosition.y, 0.05f);
+            player_lTale.transform.localPosition = new Vector3(player_lTale.transform.localPosition.x, player_lTale.transform.localPosition.y, -0.03f);
+            player_rTale.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, 0.06f);
+            player_lHand.transform.localPosition = new Vector3(player_lHand.transform.localPosition.x, player_lHand.transform.localPosition.y, -0.04f);
+            player_rHand.transform.localPosition = new Vector3(player_rHand.transform.localPosition.x, player_rHand.transform.localPosition.y, 0.02f);
+            
+            player_head_back.transform.localPosition = new Vector3(player_head_back.transform.localPosition.x, player_head_back.transform.localPosition.y, 0.01f);
+            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, 0.02f);
+            player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, 0.06f);
+            player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, -0.03f);
+            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, 0.06f);
+            player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, -0.03f);
+        }
+        else
+        {
+            player_head_front.transform.localPosition = new Vector3(player_head_front.transform.localPosition.x, player_head_front.transform.localPosition.y, -0.02f);
+            player_eye1.transform.localPosition = new Vector3(player_eye1.transform.localPosition.x, player_eye1.transform.localPosition.y, 0f);
+            player_eye2.transform.localPosition = new Vector3(player_eye2.transform.localPosition.x, player_eye2.transform.localPosition.y, 0f);
+            player_lTale.transform.localPosition = new Vector3(player_lTale.transform.localPosition.x, player_lTale.transform.localPosition.y, 0f);
+            player_rTale.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, 0f);
+            player_lHand.transform.localPosition = new Vector3(player_lHand.transform.localPosition.x, player_lHand.transform.localPosition.y, 0.01f);
+            player_rHand.transform.localPosition = new Vector3(player_rHand.transform.localPosition.x, player_rHand.transform.localPosition.y, -0.03f);
+            
+            player_head_back.transform.localPosition = new Vector3(player_head_back.transform.localPosition.x, player_head_back.transform.localPosition.y, 0f);
+            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, -0.005f);
+            player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, -0.04f);
+            player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, 0.05f);
+            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, -0.01f);
+            player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, 0.01f);
+        }
+
+    }
+    void RotateTotalZ()
     {
         if(turnBack == true)
         {
@@ -374,13 +485,36 @@ public class PlayerMovement : MonoBehaviour
             player_rTale_back.SetActive(false);
         }
     }
-    void RotatePlayerArms()
-    {
-        top_front_animator.StopPlayback();
-        float convertXtoZ;
-        convertXtoZ = s_StickRotation.transform.rotation.x;
-        leftHand.transform.localRotation = new Quaternion(0, 0, convertXtoZ, 0);
 
+    void ChangeToAttackBody()
+    {
+        if(isAttack == true)
+        {
+            player_rHand.SetActive(false);
+            player_lHand.SetActive(false);
+            player_rHand_back.SetActive(false);
+            player_lHand_back.SetActive(false);
+            weapon.SetActive(true);
+            leftHand.SetActive(true);
+            rightHand.SetActive(true);
+        }
+        else if (isAttack == false)
+        {
+            
+            if (turnBack == true)
+            {
+                player_rHand_back.SetActive(true);
+                player_lHand_back.SetActive(true);
+            }
+            else
+            {
+                player_rHand.SetActive(true);
+                player_lHand.SetActive(true);
+            }
+            weapon.SetActive(false);
+            leftHand.SetActive(false);
+            rightHand.SetActive(false);
+        }
     }
 
     //스킬 관련 
@@ -424,6 +558,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        ChangeToAttackBody();
         if (Input.GetKeyDown(KeyCode.A)) //Input.GetKeyDown(KeyCode.Mouse0)
         {
             //MouseState();
@@ -480,4 +615,7 @@ public class PlayerMovement : MonoBehaviour
         StopCoroutine(Skill_Cool_Wait());
     }
 
+
+
+    
 }

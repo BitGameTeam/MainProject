@@ -59,6 +59,8 @@ public class LoadingBar : MonoBehaviour
         if (sliderValue > 100f)
         {
             sliderValue = 100f;
+            PlayerMovement pm = FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>();
+            pm.t_moveAble = true;
             Destroy(loadingUI);
         }
     }

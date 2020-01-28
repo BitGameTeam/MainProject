@@ -70,7 +70,7 @@ public class MonsterTest : MonoBehaviour
 
     bool hasCollided = false;
     bool hasTriggered = false;
-
+    public int monSpawn = 0; 
     private void Start()
     {
         hpPoint = 10000f;
@@ -516,7 +516,11 @@ public class MonsterTest : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(!hasTriggered)
+        if (other.gameObject.tag == "BlockObject") // 몬스터 스폰
+            monSpawn = 1;
+        else
+            monSpawn = 0;
+        if (!hasTriggered)
         {
         if (other.gameObject.tag == "Projectile_Trigger")
         {
@@ -926,10 +930,6 @@ public class MonsterTest : MonoBehaviour
 
         }
 
-        if (other.gameObject.tag == "Projectile_Trigger")
-            Debug.Log(skillProjectileDamage.ToString() + "(Projectile_Trigger)/" + hpPoint.ToString());
-        if (other.gameObject.tag == "Impact_Trigger")
-            Debug.Log(skillImpactDamage.ToString() + "(Impact_Trigger)/" + hpPoint.ToString());
         }
     }
 

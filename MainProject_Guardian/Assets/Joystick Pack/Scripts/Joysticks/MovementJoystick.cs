@@ -63,11 +63,14 @@ public class MovementJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
+        playerMovement.isMove = true;
+        playerMovement.CheckJoystickUp(false);
         OnDrag(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        playerMovement.isMove = true;
         playerMovement.CheckJoystickUp(false);
 
         cam = null;
@@ -81,17 +84,27 @@ public class MovementJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
         HandleInput(input.magnitude, input.normalized, radius, cam);
         handle.anchoredPosition = input * radius * handleRange;
 
-        if(Vertical < 0f)
+        
+    }
+    private void FixedUpdate()
+    {
+        if (Vertical < 0f && playerMovement.isAttack == false)
         {
             playerMovement.turnBack = false;
         }
-        else if (Vertical >0f)
+        else if (Vertical > 0f && playerMovement.isAttack == false)
         {
             playerMovement.turnBack = true;
         }
-
+        if (Horizontal < 0)
+        {
+            playerMovement.turnRight_move = false;
+        }
+        else if (Horizontal > 0)
+        {
+            playerMovement.turnRight_move = true;
+        }
     }
-
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
         if (magnitude > deadZone)
@@ -148,6 +161,7 @@ public class MovementJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
+        playerMovement.isMove = false;
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
         FormatInput();
