@@ -4626,7 +4626,7 @@ GameObject:
   - component: {fileID: 8248702}
   - component: {fileID: 6609961597338016635}
   - component: {fileID: 7858605898889988516}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LightningBallImpactYellow
   m_TagString: Impact_Trigger
   m_Icon: {fileID: 0}
@@ -9339,7 +9339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8585f4b1e57f24ab4d957d96b0cc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashDamage: 0
+  splashDamage: 1.9
+  knockBackPower: 4
   element: 0
   impactLifeT: 0
 --- !u!135 &7858605898889988516

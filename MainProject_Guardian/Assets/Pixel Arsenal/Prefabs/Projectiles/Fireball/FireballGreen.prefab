@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 19828906}
   - component: {fileID: 19946466}
   - component: {fileID: 8247012}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FireballGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

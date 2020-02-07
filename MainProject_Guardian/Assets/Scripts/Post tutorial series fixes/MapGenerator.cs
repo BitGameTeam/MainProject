@@ -30,168 +30,24 @@ public class MapGenerator : MonoBehaviour {
 	Map currentMap;
 
     bool[,] obstacleMap;
+    
+    void Awake()
+    {
+        //FindObjectOfType<Spawner> ().OnNewWave += OnNewWave;
+        //surface.BuildNavMesh();
 
-    //[Header ("-던전 시작, 보스 방 입구")]
-    //public GameObject mapStart;
- //   public GameObject bossDoor;
- //   [SerializeField]
- //   List<int> startListNum = new List<int>();
- //   List<Vector3> tileVecList = new List<Vector3>();
- //   List<Vector3> obstacleVectorList = new List<Vector3>();
- //   List<Vector3> nonObsVecList = new List<Vector3>();
- //   List<Vector3> leftNonObsVecList = new List<Vector3>();
- //   List<Vector3> rightNonObsVecList = new List<Vector3>();
- //   List<Vector3> topNonObsVecList = new List<Vector3>();
- //   List<Vector3> bottomNonObsVecList = new List<Vector3>();
+    }
 
-
- //   private void Start()
- //   {
- //       ChangeToNonObstaclePos();
- //       int randomSide = Random.Range(0, 3);
- //       CreateStartPos(randomSide);
- //   }
-
- //   void Awake() {
- //       //FindObjectOfType<Spawner> ().OnNewWave += OnNewWave;
- //       surface.BuildNavMesh();
-        
- //   }
-
-	//void OnNewWave(int waveNumber) {
-	//	mapIndex = waveNumber - 1;
-	//	GenerateMap ();
- //   }
-
- //   void GenerateEntrance()
- //   {
- //       startListNum.Clear();
- //       int randomSide = Random.Range(0, 3);
- //       //각 사이드에 따른 벽확인
- //       switch(randomSide)
- //       {
- //           case 0:
- //               for (int i = 0; i < maxMapSize.y; i++) // 왼쪽벽 확인
- //               {
- //                   if (obstacleMap[0, i] == false)
- //                   {
- //                       startListNum.Add(i);
- //                       CreateStartPos(randomSide);
- //                   }
- //               }
- //               break;
- //           case 1:
- //               for (int i = 0; i < maxMapSize.y; i++) // 오른쪽벽 확인
- //               {
- //                   if (obstacleMap[19, i] == false)
- //                   {
- //                       startListNum.Add(i);
- //                       CreateStartPos(randomSide);
- //                   }
- //               }
- //               break;
- //           case 2:
- //               for (int i = 0; i < maxMapSize.x; i++) // 위쪽벽 확인
- //               {
- //                   if (obstacleMap[i, 0] == false)
- //                   {
- //                       startListNum.Add(i);
- //                       CreateStartPos(randomSide);
- //                   }
- //               }
- //               break;
- //           case 3:
- //               for (int i = 0; i < maxMapSize.x; i++) // 아래쪽벽 확인
- //               {
- //                   if (obstacleMap[i, 19] == false)
- //                   {
- //                       startListNum.Add(i);
- //                       CreateStartPos(randomSide);
- //                   }
- //               }
- //               break;
- //       }
- //       //안막힌 벽에 랜덤으로 시작생성
-        
- //   }
-
- //   void CreateStartPos(int randomSide)
- //   {
- //       switch(randomSide)
- //       {
- //           case 0: //왼쪽
- //               int rand = Random.Range(0, leftNonObsVecList.Count-1);
- //               mapStart.transform.position = leftNonObsVecList[rand];
- //               break;
- //           case 1: //오른쪽
- //               int rand1 = Random.Range(0, rightNonObsVecList.Count - 1);
- //               mapStart.transform.position = rightNonObsVecList[rand1];
- //               break;
- //           case 2: //위쪽
- //               int rand2 = Random.Range(0, topNonObsVecList.Count - 1);
- //               mapStart.transform.position = topNonObsVecList[rand2];
- //               break;
- //           case 3: //아래쪽
- //               int rand3 = Random.Range(0, bottomNonObsVecList.Count - 1);
- //               mapStart.transform.position = bottomNonObsVecList[rand3];
- //               break;
- //       }
- //   }
-
- //   void GetObstaclePos(Vector3 obstacleV) //랜덤 장애물 포지션 받아옴
- //   {
- //       obstacleVectorList.Add(obstacleV);
-        
- //   }
-
- //   void ChangeToNonObstaclePos() //랜덤장애물포지션을 제외한 나머지 포지션(여유공간 포지션)을 얻어야함
- //   {
- //       for (int x = 0; x < maxMapSize.x; x++)
- //       {
- //           for(int z = 0; z < maxMapSize.y; z++)
- //           {
- //               Vector3 tilePos = new Vector3(-19 + (float)x*2, 19 - (float)z*2);
- //               tileVecList.Add(tilePos);
-                
- //           }
- //       }
- //       for (int i = 0; i < tileVecList.Count; i++)
- //       {
- //           for(int r = 0; r < obstacleVectorList.Count; r++)
- //           {
- //               if (obstacleVectorList[r] != tileVecList[i])
- //                   nonObsVecList.Add(tileVecList[i]);
- //           }
-            
- //       }
- //   }
-
- //   void GetSideObstaclePos()
- //   {
- //       for (int i = 0; i < nonObsVecList.Count; i++)   //각 사이드리스트 생성
- //       {
- //           if (nonObsVecList[i].x == -19)
- //           {
- //               leftNonObsVecList.Add(nonObsVecList[i]);
- //           }
- //           if (nonObsVecList[i].x == 19)
- //           {
- //               rightNonObsVecList.Add(nonObsVecList[i]);
- //           }
- //           if (nonObsVecList[i].y == 19)
- //           {
- //               topNonObsVecList.Add(nonObsVecList[i]);
- //           }
- //           if (nonObsVecList[i].y == -19)
- //           {
- //               bottomNonObsVecList.Add(nonObsVecList[i]);
- //           }
- //       }
- //   }
-
+    //void OnNewWave(int waveNumber) {
+    //	mapIndex = waveNumber - 1;
+    //	GenerateMap ();
+    //   }
+    
     public void GenerateMap() {
-		currentMap = maps[mapIndex];
+        
+        currentMap = maps[mapIndex];
 		tileMap = new Transform[currentMap.mapSize.x,currentMap.mapSize.y];
+        currentMap.seed = Random.Range(0, 10000);
 		System.Random prng = new System.Random (currentMap.seed);
 
 		// Generating coords
@@ -281,7 +137,9 @@ public class MapGenerator : MonoBehaviour {
 		
 		navmeshFloor.localScale = new Vector3 (maxMapSize.x, maxMapSize.y) * tileSize;
 		mapFloor.localScale =  new Vector3 (currentMap.mapSize.x * tileSize, currentMap.mapSize.y * tileSize);
-	}
+
+        surface.BuildNavMesh();
+    }
 	
 	bool MapIsFullyAccessible(bool[,] obstacleMap, int currentObstacleCount) {
 		bool[,] mapFlags = new bool[obstacleMap.GetLength(0),obstacleMap.GetLength(1)];

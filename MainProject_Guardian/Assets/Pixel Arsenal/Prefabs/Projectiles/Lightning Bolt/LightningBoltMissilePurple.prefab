@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 19822766}
   - component: {fileID: 19949350}
   - component: {fileID: 8246096}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LightningBoltMissilePurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}

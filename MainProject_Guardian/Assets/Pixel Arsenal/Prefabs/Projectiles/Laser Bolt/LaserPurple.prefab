@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 19892110}
   - component: {fileID: 19942892}
   - component: {fileID: 8216142}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LaserPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}

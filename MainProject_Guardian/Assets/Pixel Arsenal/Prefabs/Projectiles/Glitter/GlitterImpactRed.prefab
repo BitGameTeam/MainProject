@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8285458}
   - component: {fileID: 4480571026793287105}
   - component: {fileID: 7842324410917026445}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GlitterImpactRed
   m_TagString: Impact_Trigger
   m_Icon: {fileID: 0}
@@ -4717,8 +4717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8585f4b1e57f24ab4d957d96b0cc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashDamage: 0
-  element: 0
+  splashDamage: 0.85
+  knockBackPower: 2.5
+  element: 1
   impactLifeT: 0
 --- !u!135 &7842324410917026445
 SphereCollider:

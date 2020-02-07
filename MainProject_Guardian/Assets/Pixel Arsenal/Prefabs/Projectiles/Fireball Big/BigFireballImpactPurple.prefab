@@ -9439,7 +9439,7 @@ GameObject:
   - component: {fileID: 8236074}
   - component: {fileID: 135741692381033286}
   - component: {fileID: 114677785914603436}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BigFireballImpactPurple
   m_TagString: Impact_Trigger
   m_Icon: {fileID: 0}
@@ -14193,6 +14193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashDamage: 0
+  knockBackPower: 3
   element: 0
   impactLifeT: 0
 --- !u!1 &152816

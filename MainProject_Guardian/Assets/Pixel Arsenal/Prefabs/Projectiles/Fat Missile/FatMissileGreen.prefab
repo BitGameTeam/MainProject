@@ -4692,7 +4692,7 @@ GameObject:
   - component: {fileID: 19824660}
   - component: {fileID: 19989730}
   - component: {fileID: 8250980}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FatMissileGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

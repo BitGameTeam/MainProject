@@ -4711,7 +4711,7 @@ GameObject:
   - component: {fileID: 114485466518242678}
   - component: {fileID: 135183801697567486}
   - component: {fileID: 54899135418024946}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FireballExplosionGreen
   m_TagString: Impact_Trigger
   m_Icon: {fileID: 0}
@@ -9434,6 +9434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashDamage: 0
+  knockBackPower: 3.2
   element: 0
   impactLifeT: 0
 --- !u!135 &135183801697567486
@@ -9444,7 +9445,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161710}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1

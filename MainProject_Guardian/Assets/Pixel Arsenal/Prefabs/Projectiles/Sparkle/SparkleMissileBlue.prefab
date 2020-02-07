@@ -4662,7 +4662,7 @@ GameObject:
   - component: {fileID: 19920564}
   - component: {fileID: 19852652}
   - component: {fileID: 8290494}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SparkleMissileBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9227,7 +9227,7 @@ GameObject:
   - component: {fileID: 19847108}
   - component: {fileID: 19930760}
   - component: {fileID: 8280742}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ShadowExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4575,7 +4575,7 @@ GameObject:
   - component: {fileID: 19819692}
   - component: {fileID: 19961246}
   - component: {fileID: 8294184}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BigFireballRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

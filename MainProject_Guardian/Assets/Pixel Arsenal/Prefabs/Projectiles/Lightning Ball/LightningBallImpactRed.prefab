@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 19826966}
   - component: {fileID: 19999798}
   - component: {fileID: 8201708}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LightningBallImpactRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

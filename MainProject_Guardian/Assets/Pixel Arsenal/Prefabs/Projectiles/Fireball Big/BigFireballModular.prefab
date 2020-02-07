@@ -4644,7 +4644,7 @@ GameObject:
   - component: {fileID: 19822110}
   - component: {fileID: 19950144}
   - component: {fileID: 8238970}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BigFireballModular
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 19882982}
   - component: {fileID: 19901428}
   - component: {fileID: 8279420}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LightningBoltMissileGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

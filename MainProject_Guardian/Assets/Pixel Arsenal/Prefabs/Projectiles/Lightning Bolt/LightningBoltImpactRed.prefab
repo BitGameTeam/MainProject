@@ -4834,7 +4834,7 @@ GameObject:
   - component: {fileID: 19833252}
   - component: {fileID: 19963530}
   - component: {fileID: 8275952}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LightningBoltImpactRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

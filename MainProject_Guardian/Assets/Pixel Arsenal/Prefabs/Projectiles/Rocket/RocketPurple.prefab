@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 19877974}
   - component: {fileID: 19911678}
   - component: {fileID: 8215230}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RocketPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}

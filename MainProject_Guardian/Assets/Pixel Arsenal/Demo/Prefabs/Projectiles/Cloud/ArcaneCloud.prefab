@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 13541744}
   - component: {fileID: 3382448}
   - component: {fileID: 114304909433653748}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ArcaneCloud
-  m_TagString: Untagged
+  m_TagString: Projectile_Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153a931235176a644b2445a77f06435a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0.6
+  power: 0
   distance: 0
   rank: 1
   element: 0
@@ -93,6 +93,7 @@ MonoBehaviour:
   damage: 0
   missileLifeT: 0.6
   manaCost: 35
+  knockBackPower: 0
   chargeMax: 0
   chargeMulti: 0
   increaseSpeedMulti: 0

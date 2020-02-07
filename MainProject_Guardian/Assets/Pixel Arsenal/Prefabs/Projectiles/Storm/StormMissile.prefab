@@ -4740,7 +4740,7 @@ GameObject:
   - component: {fileID: 19807086}
   - component: {fileID: 19946166}
   - component: {fileID: 8293398}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StormMissile
   m_TagString: Missile
   m_Icon: {fileID: 0}

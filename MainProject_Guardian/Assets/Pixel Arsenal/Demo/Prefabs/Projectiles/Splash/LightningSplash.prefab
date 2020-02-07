@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5461848}
   - component: {fileID: 13541744}
   - component: {fileID: 3382448}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LightningSplash
-  m_TagString: Untagged
+  m_TagString: Projectile_Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +56,7 @@ MonoBehaviour:
   damage: 0
   missileLifeT: 0.7
   manaCost: 20
+  knockBackPower: 0
   chargeMax: 0
   chargeMulti: 0
   increaseSpeedMulti: 0

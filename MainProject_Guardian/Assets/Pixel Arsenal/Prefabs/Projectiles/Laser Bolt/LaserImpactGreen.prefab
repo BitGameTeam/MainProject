@@ -9428,7 +9428,7 @@ GameObject:
   - component: {fileID: 19832460}
   - component: {fileID: 19911234}
   - component: {fileID: 8294620}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LaserImpactGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

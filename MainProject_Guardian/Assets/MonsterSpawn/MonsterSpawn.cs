@@ -12,8 +12,8 @@ public class MonsterSpawn : MonoBehaviour
     GameObject Monster;
     List<GameObject> Monsters = new List<GameObject>();
 
-    public int monsterCount = 10; // 몬스터 스폰 최댓값
-    public int stage = 2;
+    public int monsterCount; // 몬스터 스폰 최댓값
+    public int stage;
 
     Transform mobTrans;
 
@@ -25,37 +25,25 @@ public class MonsterSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(stage == 2)
+        if(stage == 1)
         {
             count = slimePrefabs.Length; // count에 슬라임 종류 수를 등록한다.
             mobSetname = "slimePrefabs";
         }
-        else if (stage == 3)
+        else if (stage == 2)
         {
             count = skeltonPrefabs.Length; // count에 스켈레톤 종류 수를 등록한다.
             mobSetname = "skeltonPrefabs";
         }
-        else if (stage == 4)
+        else if (stage == 3)
         {
             count = orcPrefabs.Length; // count에 오크 종류 수를 등록한다.
             mobSetname = "orcPrefabs";
         }
-        SpawnMon(); //몬스터 스폰 시작
+         //몬스터 스폰 시작
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //SpawnMon();
-    }
-
-    private void Awake()
-    {
-        //SpawnMon(); //몬스터 스폰 시작
-
-    }
-
-    void SpawnMon()
+    public void SpawnMon()
     {
         for (int i = 0; i < monsterCount; i++) // 몬스터 소환 최대수만큼  반복
         {
@@ -65,7 +53,7 @@ public class MonsterSpawn : MonoBehaviour
             float mobPosZ = Random.Range(-19f, 18f); // 몬스터 y 축 랜덤
             //mobTrans.position = new Vector3(mobPosX, 1.7f, mobPosZ); // 몬스터 포지션 저장
 
-            if (stage == 2)
+            if (stage == 1)
             {
                 //Monster[i] = (GameObject)Instantiate(slimePrefabs[monset], new Vector3(mobPosX, 1.7f, mobPosZ), Quaternion.identity) as GameObject; // 해당 몬스터 좌표에 소환
                 Monster = (GameObject)Instantiate(slimePrefabs[monset], new Vector3(mobPosX, 1.7f, mobPosZ), Quaternion.identity) as GameObject;
@@ -82,11 +70,11 @@ public class MonsterSpawn : MonoBehaviour
                 {
                     Monsters.Add(Monster);
                     int mob = i + 1;
-                    Debug.Log("몬스터 수 / 최댓값 : " + mob + " / " + monsterCount);
                 }
 
+                    //Debug.Log("몬스터 수 / 최댓값 : " + mob + " / " + monsterCount);
             }
-            else if (stage == 3)
+            else if (stage == 2)
             {
                 //Monster[i] = (GameObject)Instantiate(skeltonPrefabs[monset], new Vector3(mobPosX, 1.7f, mobPosZ), Quaternion.identity) as GameObject;
                 Monster = (GameObject)Instantiate(skeltonPrefabs[monset], new Vector3(mobPosX, 1.7f, mobPosZ), Quaternion.identity) as GameObject;
@@ -103,7 +91,7 @@ public class MonsterSpawn : MonoBehaviour
                     Monsters.Add(Monster);
                 }
             }
-            else if (stage == 4)
+            else if (stage == 3)
             {
                 //Monster[i] = (GameObject)Instantiate(orcPrefabs[monset], new Vector3(mobPosX, 1.7f, mobPosZ), Quaternion.identity) as GameObject;
                 Monster = (GameObject)Instantiate(orcPrefabs[monset], new Vector3(mobPosX, 1.7f, mobPosZ), Quaternion.identity) as GameObject;
@@ -125,19 +113,19 @@ public class MonsterSpawn : MonoBehaviour
 
     void TakeColiderNum(int num)
     {
-        if (stage ==2)
+        if (stage ==1)
         {
-           var colNum = slimePrefabs[num].GetComponent<MonsterTest>();
+           var colNum = slimePrefabs[num].GetComponent<SlimeAi>();
             mobColi = colNum.monSpawn;
         }
-        else if(stage == 3)
+        else if(stage == 2)
         {
-            var colNum = skeltonPrefabs[num].GetComponent<MonsterTest>();
+            var colNum = skeltonPrefabs[num].GetComponent<SkeletonAi>();
             mobColi = colNum.monSpawn;
         }
-        else if (stage == 4)
+        else if (stage == 3)
         {
-            var colNum = orcPrefabs[num].GetComponent<MonsterTest>();
+            var colNum = orcPrefabs[num].GetComponent<OrcAi>();
             mobColi = colNum.monSpawn;
         }
     }

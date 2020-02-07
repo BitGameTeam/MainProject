@@ -6,15 +6,14 @@ using UnityEngine.UI;
 public class CharacterStatus : MonoBehaviour
 {
 
-    public static CharacterStatus instance;
+    public static CharacterStatus instance; //싱글톤
     #region 플레이어 스텟정보
+    public float max_Hp;
     public float hp_Point;
     public float attack_Point;
-    public float attack_Speed;
     public float move_Speed;
-    public float attack_Range;
-    public int caruma;
-    public int gold_Point;
+    public float max_Mana;
+    public float mana_Point;
     [SerializeField]
     private string get_Item;
     public string[] skill_use;
@@ -36,6 +35,25 @@ public class CharacterStatus : MonoBehaviour
     public Text item_att;
 
     List<GameObject> item_List = new List<GameObject>();
+
+    Rigidbody rg;
+
+    #region UI관련
+    public Slider manaSlider;
+    public Slider hpSlider;
+    #endregion
+
+    #region 피해관련 변수
+    bool isHit = false;
+    bool hasTriggered = false;
+    MonsterWeapon mw;
+    Vector3 direction;
+    float knockBackDistance;
+    bool knockBack = false;
+    float monsterWeaponDamage;
+    int monsterElement;
+    Collider triggerCollider;
+    #endregion
 
     #region 종족, 상태
     public enum Tribe
@@ -64,113 +82,103 @@ public class CharacterStatus : MonoBehaviour
     public ItemInfo ii;
     #endregion
 
-    #region 초기값 설정
     private void Start()
     {
+        triggerCollider = GetComponent<Collider>();
         instance = this;
-        hp_Point = 200f;
-        attack_Point = 100f;
-        attack_Speed = 1.0f;
-        move_Speed = 0.06f;
+        SetMaxHp();
+        rg = this.GetComponent<Rigidbody>();
+    }
 
-        playerTribe = Tribe.Demon;
-        playerState = State.Wating;
+    private void Update()
+    {
+        GenerateHpAndMp();
+        ShowManaSlider();
+        ShowHpSlider();
 
-        for (int i = 0; ; i++)
+    }
+
+    private void FixedUpdate()
+    {
+        if (knockBack)
         {
-            try
-            {
-                GameObject c = item_Set_Position.transform.GetChild(i).gameObject;
-                item_List.Add(c);
-            }
-            catch
-            {
-                break;
-            }
+            //rg.velocity = convertXZ * knockBackDistance;
+            //triggerCollider.enabled = false;
         }
-
-        SendStatusData(); //초기실행시 필수
-    }
-    #endregion
-
-    #region 장비 테스트 메서드
-    public void Status_Plus_Item()
-    {
-        hp_Point = hp_Point + php_Point;
-        attack_Point = attack_Point + pattack_Point;
-        attack_Range = pattack_Range;
-        attack_Speed = pattack_Speed;
-        move_Speed = pmove_Speed;
-        SendStatusData();
-    }
-    public void Status_Minus_Item()
-    {
-        hp_Point = hp_Point - php_Point;
-        attack_Point = attack_Point - pattack_Point;
-        attack_Range = 1;
-        attack_Speed = 1;
-        move_Speed = pmove_Speed;
-        ii = null;
-        SendStatusData();
-    }
-    public void Item_Set()
-    {
-        //try
-        //{
-            Item_NUll();
-            int itemNumber = int.Parse(item_att.text);
-            item_List[itemNumber+1].SetActive(true);
-            ii = item_List[itemNumber+1].GetComponent<ItemInfo>();
-            php_Point = ii.ihp_Point;
-            pattack_Point = ii.iattack_Point;
-            pattack_Speed = ii.iattack_Speed;
-            pattack_Range = ii.iattack_Range;
-            pmove_Speed = ii.imove_Speed;
-            get_Item = ii.item_Name;
-        for(int i = 0; i< ii.skill_Set.Length; i++)
+        else
         {
-            if (ii.skill_Set[i] != null)
-            {
-                skill_use[i] = ii.skill_Set[i];
-            }
-        }
-            Status_Plus_Item();
-        //}
-        //catch(System.Exception ex)
-        //{
-        //    Debug.Log(ex);
-        //}
-    }
-    public void Item_NUll()
-    {
-        Status_Minus_Item();
-        get_Item = string.Empty;
-        for (int i = 0; i < skill_use.Length; i++)
-        {
-            if (skill_use != null)
-            {
-                skill_use[i] = null;
-            }
-        }
-        foreach (GameObject g in item_List)
-        {
-            g.SetActive(false);
+            triggerCollider.enabled = true;
         }
     }
-    #endregion
-    #region 상태정보 변경메서드
-    public void ChangeAttackSpeed(float attackSpeed) //공격속도를 변경하는 메서드
+
+    private void OnTriggerEnter(Collider other)
     {
-        attack_Speed = attackSpeed;
-        SendStatusData(); //상태정보가 바뀌면 해당 상태정보를 사용하는 클래스에게 변경사실을 알려야함
+        if (!hasTriggered)
+        {
+            hasTriggered = true;
+            if (other.gameObject.tag == "MonsterWeapon_Trigger")
+            {
+                if(!isHit)
+                {
+                    direction = other.transform.forward;
+                    mw = other.gameObject.GetComponent<MonsterWeapon>();
+                    knockBackDistance = mw.knockBackPower;
+                    monsterWeaponDamage = mw.weaponDamage;
+                    StartCoroutine(KnockBack());
+                    StartCoroutine(DamagedFromMonsterWeapon());
+                }
+            }
+            
+            hasTriggered = false;
+        }
+    }
+    #region UI메서드
+    void ShowManaSlider()
+    {
+        SliderValueReciver svr = manaSlider.GetComponent<SliderValueReciver>();
+        svr.SliderValue = mana_Point;
+    }
+    public void SetMaxHp()
+    {
+        SliderValueReciver svr = hpSlider.GetComponent<SliderValueReciver>();
+        Slider hp_slider = hpSlider.GetComponent<Slider>();
+        hp_slider.maxValue = hp_Point;
+    }
+    public void ShowHpSlider()
+    {
+        SliderValueReciver svr = hpSlider.GetComponent<SliderValueReciver>();
+        svr.SliderValue = hp_Point;
+    }
+    void GenerateHpAndMp()
+    {
+        if (mana_Point < max_Mana)
+            mana_Point += Time.deltaTime * 5f;
+        else
+            mana_Point = max_Mana;
+
+        if (hp_Point < max_Hp)
+            hp_Point += Time.deltaTime * 1f;
+        else
+            hp_Point = max_Hp;
     }
     #endregion
-    #region Playermovemt클래스로 정보전달(공속 등)
-    public void SendStatusData() //PlayerMovement 클래스의 GetSendData 메서드를 발생시킴
+    IEnumerator DamagedFromMonsterWeapon()
     {
-        pm = this.gameObject.GetComponent<PlayerMovement>();
-        object[] status = {attack_Speed }; //스탯배열
-        pm.SendMessage("GetStatusData", status);
+        isHit = true;
+        hp_Point -= monsterWeaponDamage;
+        yield return new WaitForSeconds(0.2f);
+        isHit = false;
+        StopCoroutine(DamagedFromMonsterWeapon());
+    } 
+    IEnumerator KnockBack()
+    {
+        knockBack = true;
+        Vector3 convertXZ = new Vector3(direction.x, 0, direction.z);
+        rg.AddForce(convertXZ * knockBackDistance , ForceMode.Impulse);//Knocks the enemy back when appropriate
+        yield return new WaitForSeconds(0.5f); //Only knock the enemy back for a short time    
+
+        //Reset to default values
+        knockBack = false;
+        StopCoroutine(KnockBack());
     }
-    #endregion
 }

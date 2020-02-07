@@ -4750,7 +4750,7 @@ GameObject:
   - component: {fileID: 19837356}
   - component: {fileID: 19970900}
   - component: {fileID: 8238172}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ShockStateEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

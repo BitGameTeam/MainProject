@@ -13878,7 +13878,7 @@ GameObject:
   - component: {fileID: 19812680}
   - component: {fileID: 19951896}
   - component: {fileID: 8277162}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AcidMissileBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

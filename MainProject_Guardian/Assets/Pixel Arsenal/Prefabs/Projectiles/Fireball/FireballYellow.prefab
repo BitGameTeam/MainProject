@@ -9255,7 +9255,7 @@ GameObject:
   - component: {fileID: 19898682}
   - component: {fileID: 19911736}
   - component: {fileID: 8237092}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FireballYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

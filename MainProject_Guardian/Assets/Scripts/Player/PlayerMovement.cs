@@ -60,8 +60,7 @@ public class PlayerMovement : MonoBehaviour
     GameObject rightHand;
     [SerializeField]
     GameObject weapon;
-
-
+    
     #region 변수들 (애니메이션에 필요)
     public Animator top_front_animator;
     public Animator bottom_front_animator;
@@ -77,14 +76,10 @@ public class PlayerMovement : MonoBehaviour
     public Camera camera;
     #endregion
     #region 변수들 스텟(플레이어 정보) 관련
-    private int mouse_rot = 0;
+    //private int mouse_rot = 0;
     public CharacterStatus playerInfo;
-    public GameObject skill_Point;
+    //public GameObject skill_Point;
 
-    private int skill_num;
-
-    private float skill_Cool;
-    private bool skill_Cool_Check;
     #endregion
     Vector3 mouse_Position;
     bool isPointerUp = true;
@@ -121,20 +116,15 @@ public class PlayerMovement : MonoBehaviour
         joystick = FindObjectOfType<MovementJoystick>();
         sJoystick = FindObjectOfType<ShootingJoystick>();
         playerInfo = this.gameObject.GetComponent<CharacterStatus>();
-        skill_Cool_Check = true;
+        //skill_Cool_Check = true;
         //StartCoroutine(State_Check());
     }
 
     //CharacterStatus 클래스의 SendStatusData 메서드로부터 플레이어 현재상태를 받아옴 (주로 무기교체, 아이템사용시 발생)
-    public void GetStatusData(object[] status)
+    void GetStatusData()
     {
-        #region 공격속도 변경
-        delayT = (float)status[0]; //상태배열의 0번째를 받아옴
-        primeDelayT = delayT; //delayT는 deltatime에 의해 0으로 감소하므로 다시 초기화시켜주는 primeDelayT가 필요함
-        revertDelay = 1.0f / delayT; //공격속도가 0에 가까워질수록 애니메이션의 실행속도를 증가시켜주어야 함으로 반비례공식을 사용함
-        //animator.SetFloat("attackSpeed", revertDelay); //애니메이터에 파라미터값을 수정함 -> 각 애니메이션 클립의 인스펙터창에 있는 speed의 Multiplier값을 적용하여 증감시킨다.
-        Debug.Log(revertDelay.ToString() + " / " + delayT.ToString()); //디버그용
-        #endregion
+        moveSpeed = playerInfo.move_Speed;
+
     }
 
     #region 애니메이션
@@ -194,25 +184,25 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x != 0)
         {
             #region 프리징
-            rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+            //rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             #endregion
         }
         if (movement.z != 0)
         {
             #region 프리징
-            rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+            //rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             #endregion
         }
         if ((movement.x == 0) && (movement.z == 0))
         {
             #region 프리징
-            rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+            //rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             #endregion
         }
         if ((movement.x != 0) && (movement.z != 0))
         {
             #region 프리징
-            rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+            //rg.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             #endregion
             crossSpeed = 0.8f;
         }
@@ -377,11 +367,11 @@ public class PlayerMovement : MonoBehaviour
             player_rFoot.transform.localPosition = new Vector3(player_rFoot.transform.localPosition.x, player_rFoot.transform.localPosition.y, -0.01f);
 
             player_head_back.transform.localPosition = new Vector3(player_head_back.transform.localPosition.x, player_head_back.transform.localPosition.y, 0.01f);
-            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, 0.05f);
-            player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, 0.06f);
-            player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, -0.03f);
-            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, 0.06f);
-            player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, -0.03f);
+            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, 0.01f);
+            player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, 0.02f);
+            player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, -0.01f);
+            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, 0.02f);
+            player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, -0.01f);
         }
         else if (turnRight_move == false || turnRight_attack == false)
         {
@@ -421,13 +411,13 @@ public class PlayerMovement : MonoBehaviour
             player_rTale.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, 0.06f);
             player_lHand.transform.localPosition = new Vector3(player_lHand.transform.localPosition.x, player_lHand.transform.localPosition.y, -0.04f);
             player_rHand.transform.localPosition = new Vector3(player_rHand.transform.localPosition.x, player_rHand.transform.localPosition.y, 0.02f);
-            
+
             player_head_back.transform.localPosition = new Vector3(player_head_back.transform.localPosition.x, player_head_back.transform.localPosition.y, 0.01f);
-            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, 0.02f);
-            player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, 0.06f);
-            player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, -0.03f);
-            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, 0.06f);
-            player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, -0.03f);
+            player_body_back.transform.localPosition = new Vector3(player_body_back.transform.localPosition.x, player_body_back.transform.localPosition.y, 0.01f);
+            player_lTale_back.transform.localPosition = new Vector3(player_lTale_back.transform.localPosition.x, player_lTale_back.transform.localPosition.y, 0.02f);
+            player_rTale_back.transform.localPosition = new Vector3(player_rTale.transform.localPosition.x, player_rTale.transform.localPosition.y, -0.01f);
+            player_lHand_back.transform.localPosition = new Vector3(player_lHand_back.transform.localPosition.x, player_lHand_back.transform.localPosition.y, 0.02f);
+            player_rHand_back.transform.localPosition = new Vector3(player_rHand_back.transform.localPosition.x, player_rHand_back.transform.localPosition.y, -0.01f);
         }
         else
         {
@@ -516,68 +506,16 @@ public class PlayerMovement : MonoBehaviour
             rightHand.SetActive(false);
         }
     }
-
-    //스킬 관련 
-    //private void Skill()
-    //{
-    //    float animationNum = 0;
-    //    switch (animationNum)
-    //    {
-    //        case 0:
-    //            animator.SetBool("isAttack1", true);
-    //            break;
-    //        case 1:
-    //            animator.SetBool("isAttack2", true);
-    //            break;
-    //        case 2:
-    //            animator.SetBool("isAttack3", true);
-    //            break;
-    //        case 3:
-    //            animator.SetBool("isAttack1", true);
-    //            break;
-    //        case 4:
-    //            animator.SetBool("isAttack2", true);
-    //            break;
-    //    }
-
-    //    delayT -= Time.deltaTime;
-    //    skill_Cool = SkillManagement.instance.Return_Skill(playerInfo.ii.skill_Set_Num[skill_num], this.transform);
-    //    StartCoroutine(Skill_Cool_Wait());
-    //    if (delayT < 0)
-    //    {
-
-    //        animator.SetBool("isAttack1", false);
-    //        animator.SetBool("isAttack2", false);
-    //        animator.SetBool("isAttack3", false);
-    //        playerInfo.playerState = CharacterStatus.State.Wating;
-    //        delayT = primeDelayT;
-    //    }
-    //}
+    
     #endregion
     //키보드 키 입력 받음
     void FixedUpdate()
     {
         Move();
         ChangeToAttackBody();
-        if (Input.GetKeyDown(KeyCode.A)) //Input.GetKeyDown(KeyCode.Mouse0)
-        {
-            //MouseState();
-            playerInfo.playerState = CharacterStatus.State.Attack;
-        }
-        else if (Input.GetKeyDown(KeyCode.Q) && skill_Cool_Check == true)
-        {
-            //MouseState();
-            PointRotation.instance.Get_Zrot();
-            skill_num = 0;
-            playerInfo.playerState = CharacterStatus.State.Skill;
-        }
-        else if (Input.GetKeyDown(KeyCode.E) && skill_Cool_Check == true)
-        {
-            //MouseState();
-            PointRotation.instance.Get_Zrot();
-            skill_num = 1;
-            playerInfo.playerState = CharacterStatus.State.Skill;
-        }
+
+
+        
     }
 
     // 플레이어 상태에 따른 변화
@@ -605,14 +543,6 @@ public class PlayerMovement : MonoBehaviour
             #endregion
             yield return null;
         }
-    }
-    //스킬 쿨타임 관련
-    IEnumerator Skill_Cool_Wait()
-    {
-        skill_Cool_Check = false;
-        yield return new WaitForSeconds(skill_Cool);
-        skill_Cool_Check = true;
-        StopCoroutine(Skill_Cool_Wait());
     }
 
 

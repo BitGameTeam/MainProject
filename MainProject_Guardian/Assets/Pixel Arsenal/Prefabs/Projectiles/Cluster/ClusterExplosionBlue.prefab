@@ -9311,7 +9311,7 @@ GameObject:
   - component: {fileID: 19810392}
   - component: {fileID: 19979112}
   - component: {fileID: 8243190}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ClusterExplosionBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4617,7 +4617,7 @@ GameObject:
   - component: {fileID: 8260060}
   - component: {fileID: 135383447248704442}
   - component: {fileID: 114938296946154988}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PoisonImpactModular
   m_TagString: Impact_Trigger
   m_Icon: {fileID: 0}
@@ -9352,7 +9352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8585f4b1e57f24ab4d957d96b0cc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashDamage: 0
+  splashDamage: 0.5
+  knockBackPower: 0.1
   element: 0
   impactLifeT: 0
 --- !u!1 &146194

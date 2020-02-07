@@ -4692,7 +4692,7 @@ GameObject:
   - component: {fileID: 19817632}
   - component: {fileID: 19993978}
   - component: {fileID: 8219032}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BulletModular
   m_TagString: Untagged
   m_Icon: {fileID: 0}

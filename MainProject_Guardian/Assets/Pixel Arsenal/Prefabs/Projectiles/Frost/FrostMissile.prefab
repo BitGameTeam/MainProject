@@ -4770,7 +4770,7 @@ GameObject:
   - component: {fileID: 19891576}
   - component: {fileID: 19907338}
   - component: {fileID: 8218364}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FrostMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 13541744}
   - component: {fileID: 3382448}
   - component: {fileID: 114840787519379536}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FirePlasma
   m_TagString: Projectile_Trigger
   m_Icon: {fileID: 0}
@@ -93,6 +93,7 @@ MonoBehaviour:
   damage: 0
   missileLifeT: 0.7
   manaCost: 15
+  knockBackPower: 3.2
   chargeMax: 0
   chargeMulti: 0
   increaseSpeedMulti: 0

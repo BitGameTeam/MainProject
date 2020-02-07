@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 19852668}
   - component: {fileID: 19974254}
   - component: {fileID: 8227740}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SparkleExplosionYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,6 +15,7 @@ public class SkillProjectile : MonoBehaviour
     public float damage;
     public float missileLifeT;
     public float manaCost;
+    public float knockBackPower;
     #endregion
 
     #region 차지스킬 변수
@@ -104,109 +105,12 @@ public class SkillProjectile : MonoBehaviour
             Destroy(muzzleParticle, 1.5f); // Lifetime of muzzle effect.
         }
     }
-    void OnCollisionEnter(Collision hit)
-    {
-        if (hit.gameObject.tag == "Impact_Trigger" || hit.gameObject.tag == "Impact")
-        {
-            return;
-        }
-        if (!hasCollided && penetrateAble == true)
-        {
-            if(hit.collider.tag != "Monsters" && hit.collider.tag != "Player")
-            {
-                impactParticle = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, impactNormal)) as GameObject;
-
-                Destroy(projectileParticle, 2f);
-                Destroy(impactParticle, 1f);
-                Destroy(gameObject);
-            }
-        }
-        if (!hasCollided && isSplash == false && penetrateAble == false)
-        {
-            hasCollided = true;
-            impactParticle = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, impactNormal)) as GameObject;
-
-            
-            Destroy(projectileParticle, 2f);
-            Destroy(impactParticle, 1f);
-            Destroy(gameObject);
-            try
-            {
-                ParticleSystem[] trails = GetComponentsInChildren<ParticleSystem>();
-                //Component at [0] is that of the parent i.e. this object (if there is any)
-                for (int i = 1; i < trails.Length; i++)
-                {
-
-                    ParticleSystem trail = trails[i];
-
-                    if (trail.gameObject.name.Contains("Trail"))
-                    {
-                        trail.transform.SetParent(null);
-                        Destroy(trail.gameObject, 2f);
-                    }
-                }
-            }
-            catch
-            {
-
-            }
-        }
-        if (!hasCollided && isSplash == true)
-        {
-            hasCollided = true;
-            impactParticle = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, impactNormal)) as GameObject;
-
-            SplashDamage sd = impactParticle.GetComponent<SplashDamage>();
-            sd.splashDamage = damage;
-            sd.impactLifeT = coolTime;
-            sd.SetElement((int)element);
-
-            try
-            {
-                foreach (GameObject trail in trailParticles)
-                {
-                    GameObject curTrail = transform.Find(projectileParticle.name + "/" + trail.name).gameObject;
-                    curTrail.transform.parent = null;
-                    Destroy(curTrail, 3f);
-                }
-
-
-
-            }
-            catch
-            {
-
-            }
-            Destroy(projectileParticle, 2f);
-            Destroy(gameObject);
-            try
-            {
-                ParticleSystem[] trails = GetComponentsInChildren<ParticleSystem>();
-                //Component at [0] is that of the parent i.e. this object (if there is any)
-                for (int i = 1; i < trails.Length; i++)
-                {
-
-                    ParticleSystem trail = trails[i];
-
-                    if (trail.gameObject.name.Contains("Trail"))
-                    {
-                        trail.transform.SetParent(null);
-                        Destroy(trail.gameObject, 2f);
-                    }
-                }
-            }
-            catch
-            {
-
-            }
-        }
-    }
     void OnTriggerEnter(Collider hit)
     {
         if(hit.gameObject.tag == "Impact_Trigger" || hit.gameObject.tag == "Impact")
         {
             return;
-        }
+        }       
         if (!hasCollided && penetrateAble == true)
         {
             if (hit.GetComponent<Collider>().tag != "Monsters" && hit.GetComponent<Collider>().tag != "Player" 

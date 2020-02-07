@@ -4699,7 +4699,7 @@ GameObject:
   - component: {fileID: 19802330}
   - component: {fileID: 19946112}
   - component: {fileID: 8241806}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SparkleExplosionModular
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13878,7 +13878,7 @@ GameObject:
   - component: {fileID: 19821080}
   - component: {fileID: 19991882}
   - component: {fileID: 8222286}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BigFireballGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

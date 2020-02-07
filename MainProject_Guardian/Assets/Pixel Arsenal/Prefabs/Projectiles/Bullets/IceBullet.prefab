@@ -4692,7 +4692,7 @@ GameObject:
   - component: {fileID: 19810316}
   - component: {fileID: 19948732}
   - component: {fileID: 8262844}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: IceBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

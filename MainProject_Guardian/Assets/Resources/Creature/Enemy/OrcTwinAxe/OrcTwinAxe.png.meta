@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: 27bf0f09606999f479037ff54acdec36
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: OrcTwinAxe_0
+    21300002: OrcTwinAxe_1
+    21300004: OrcTwinAxe_2
+    21300006: OrcTwinAxe_3
+    21300008: OrcTwinAxe_4
+    21300010: OrcTwinAxe_5
+    21300012: OrcTwinAxe_6
+    21300014: OrcTwinAxe_7
+    21300016: OrcTwinAxe_8
+    21300018: OrcTwinAxe_9
+    21300020: OrcTwinAxe_10
+    21300022: OrcTwinAxe_11
+    21300024: OrcTwinAxe_12
+    21300026: OrcTwinAxe_13
+    21300028: OrcTwinAxe_14
+    21300030: OrcTwinAxe_15
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OrcTwinAxe_0
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 298
+        width: 65
+        height: 67
+      alignment: 9
+      pivot: {x: 0.3466304, y: 0.03150735}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e57d400a75f0a94a932c46166e9de29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_1
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 336
+        width: 24
+        height: 25
+      alignment: 9
+      pivot: {x: 0.76985294, y: 0.79359984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8fc7e487651e64391d2be0759aba42
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 337
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.23014832, y: 0.7518628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe791cc1890dcf41bb95520eeb5697f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_3
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 301
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5054513, y: 0.23546115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b052fdc834cfa474c9c5fa81b693cae9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_4
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 307
+        width: 25
+        height: 24
+      alignment: 9
+      pivot: {x: 0.111413576, y: 0.8957837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbceff637c1fe84fad7f6e22b663645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_5
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 307
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.8418134, y: 0.8598035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f86c793e1913c429b4a4a76bd388e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_6
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 284
+        width: 28
+        height: 16
+      alignment: 9
+      pivot: {x: 0.93595666, y: 0.19307518}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a2347006c6855d41ac8ed4274562cbd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_7
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 285
+        width: 28
+        height: 15
+      alignment: 9
+      pivot: {x: 0.037539892, y: 0.16858928}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c5428ee4b2e7741aa35bf5433147f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_8
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 252
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5163557, y: 0.17041016}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac4534d3eadd394094a615c741a8f30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_9
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 233
+        width: 36
+        height: 36
+      alignment: 9
+      pivot: {x: 0.55397034, y: 0.36807293}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8cc494e3b180b744828003ef1320266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 8
+        height: 13
+      alignment: 9
+      pivot: {x: 0.508049, y: 0.90125215}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d817598c09d38db478fd3594fb393308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_11
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 256
+        width: 8
+        height: 13
+      alignment: 9
+      pivot: {x: 0.4999962, y: 0.9111586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da8ed4a6694fbc4eaf17934615feb5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 243
+        width: 8
+        height: 11
+      alignment: 9
+      pivot: {x: 0.4999962, y: 0.898099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4045b6a63fdf75e4989002efb935df1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_13
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 243
+        width: 8
+        height: 11
+      alignment: 9
+      pivot: {x: 0.49194717, y: 0.90395284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae0cc2ac69fc9a438bac1834fbcac6a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_14
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 232
+        width: 11
+        height: 5
+      alignment: 9
+      pivot: {x: 0.20142435, y: 0.84775084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4924328a1c26d584085e0e202ea2db57
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcTwinAxe_15
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 232
+        width: 11
+        height: 5
+      alignment: 9
+      pivot: {x: 0.20142435, y: 0.8735107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737a430ab9ab499428db2c3e9728783d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0e4ecacb165f3554685c25629498cf29
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

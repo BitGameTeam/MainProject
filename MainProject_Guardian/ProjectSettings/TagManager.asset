@@ -29,6 +29,8 @@ TagManager:
   - Missile
   - Projectile_Trigger
   - Impact_Trigger
+  - Text_001
+  - MonsterWeapon_Trigger
   layers:
   - Default
   - TransparentFX
@@ -41,9 +43,9 @@ TagManager:
   - PostProcessing
   - OntriggerCheck
   - Navmesh
-  - 
-  - 
-  - 
+  - WallAndPlayer
+  - RangeWeapon
+  - Player_Magic
   - 
   - 
   - 

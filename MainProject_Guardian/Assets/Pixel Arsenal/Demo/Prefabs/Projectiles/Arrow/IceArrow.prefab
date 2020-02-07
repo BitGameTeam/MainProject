@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 13541744}
   - component: {fileID: 3382448}
   - component: {fileID: 114744909049225248}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: IceArrow
-  m_TagString: Untagged
+  m_TagString: Projectile_Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186734}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.25
@@ -93,6 +93,7 @@ MonoBehaviour:
   damage: 0
   missileLifeT: 0.7
   manaCost: 30
+  knockBackPower: 2
   chargeMax: 1
   chargeMulti: 1.5
   increaseSpeedMulti: 80

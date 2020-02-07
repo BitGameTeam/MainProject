@@ -1,0 +1,436 @@
+fileFormatVersion: 2
+guid: 95dba3976fd1f43418c717976f8456b1
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: OrcAxe_0
+    21300002: OrcAxe_1
+    21300004: OrcAxe_2
+    21300006: OrcAxe_3
+    21300008: OrcAxe_4
+    21300010: OrcAxe_5
+    21300012: OrcAxe_6
+    21300014: OrcAxe_7
+    21300016: OrcAxe_8
+    21300018: OrcAxe_9
+    21300020: OrcAxe_10
+    21300022: OrcAxe_11
+    21300024: OrcAxe_12
+    21300026: OrcAxe_13
+    21300028: OrcAxe_14
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OrcAxe_0
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 298
+        width: 62
+        height: 67
+      alignment: 9
+      pivot: {x: 0.35756463, y: 0.0484938}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec466895b29a4b840afa42b927f9c607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_1
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 337
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.8037033, y: 0.7989209}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7af726abcc6bb42ad28df529af7deb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 337
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.19629924, y: 0.7989209}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a7b0ba634451145881f1d1189cdd79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_3
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 253
+        width: 59
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2cffcf5217cdc944825b82d4790e51d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_4
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 307
+        width: 25
+        height: 24
+      alignment: 9
+      pivot: {x: 0.11213501, y: 0.87075424}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8206e1d2769fd7c409788bc53594c1a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_5
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 307
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.8469887, y: 0.8850136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e309a9c69c09c842b8f249586d14619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_6
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 284
+        width: 28
+        height: 16
+      alignment: 9
+      pivot: {x: 0.904565, y: 0.36842918}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a41fb5d45f492d43bb738beb78d2bc2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_7
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 285
+        width: 28
+        height: 15
+      alignment: 9
+      pivot: {x: 0.09379033, y: 0.34618568}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2ca43cffc38d9419c1cb0bf6697a79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_8
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 233
+        width: 36
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5730701, y: 0.34342194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccaae072494347f4c88d0f9f98e18d89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 8
+        height: 13
+      alignment: 9
+      pivot: {x: 0.50780106, y: 0.9224501}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347db9a372508da49be46cf828f0d061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_10
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 256
+        width: 8
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9176495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99906065c80230645ad39eb1b3bcefff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 243
+        width: 8
+        height: 11
+      alignment: 9
+      pivot: {x: 0.49219894, y: 0.9028126}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5146d3417d70254f9131090361948ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_12
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 243
+        width: 8
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5156021, y: 0.89713913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 636ee63161b12f5409b87e2db9630ba1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_13
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 232
+        width: 11
+        height: 5
+      alignment: 9
+      pivot: {x: 0.17661633, y: 0.87444764}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0bfaf3a8363ba8439fe2efa5bdef479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrcAxe_14
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 232
+        width: 11
+        height: 5
+      alignment: 9
+      pivot: {x: 0.1879633, y: 0.9118897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9f17db2f6d43d42bbc30365fafa131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b9ea99477cfda434097523c04f559105
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

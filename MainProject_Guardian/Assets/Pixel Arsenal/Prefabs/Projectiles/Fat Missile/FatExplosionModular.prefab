@@ -9547,7 +9547,7 @@ GameObject:
   - component: {fileID: 54953314526509712}
   - component: {fileID: 135321334855545492}
   - component: {fileID: 114537126381926810}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FatExplosionModular
   m_TagString: Impact_Trigger
   m_Icon: {fileID: 0}
@@ -14297,7 +14297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8585f4b1e57f24ab4d957d96b0cc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashDamage: 0
+  splashDamage: 0.35
+  knockBackPower: 3.6
   element: 0
   impactLifeT: 0
 --- !u!1 &185780

@@ -9449,9 +9449,9 @@ GameObject:
   - component: {fileID: 135151516778322574}
   - component: {fileID: 114288618947381486}
   - component: {fileID: 54291269135755620}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FatBulletExplosionBlue
-  m_TagString: Impact
+  m_TagString: Impact_Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14139,7 +14139,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195184}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
@@ -14156,7 +14156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8585f4b1e57f24ab4d957d96b0cc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashDamage: 0
+  splashDamage: 2
+  knockBackPower: 4
   element: 0
   impactLifeT: 0
 --- !u!54 &54291269135755620

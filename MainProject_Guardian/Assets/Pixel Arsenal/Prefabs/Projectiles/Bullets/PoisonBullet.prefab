@@ -4692,7 +4692,7 @@ GameObject:
   - component: {fileID: 19837780}
   - component: {fileID: 19949862}
   - component: {fileID: 8223838}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PoisonBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

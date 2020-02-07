@@ -4690,7 +4690,7 @@ GameObject:
   - component: {fileID: 19832516}
   - component: {fileID: 19939350}
   - component: {fileID: 8239396}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LaserImpactRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

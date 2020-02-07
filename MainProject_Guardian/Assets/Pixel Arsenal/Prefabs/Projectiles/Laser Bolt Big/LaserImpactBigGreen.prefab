@@ -9475,7 +9475,7 @@ GameObject:
   - component: {fileID: 8240112}
   - component: {fileID: 135432423029481898}
   - component: {fileID: 114663983509947188}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LaserImpactBigGreen
   m_TagString: Impact_Trigger
   m_Icon: {fileID: 0}
@@ -12882,7 +12882,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -14202,6 +14202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashDamage: 0
+  knockBackPower: 2
   element: 0
   impactLifeT: 0
 --- !u!1 &192586

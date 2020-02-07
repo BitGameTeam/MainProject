@@ -4761,7 +4761,7 @@ GameObject:
   - component: {fileID: 19919076}
   - component: {fileID: 19891736}
   - component: {fileID: 8206204}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SparkleMissileModular
   m_TagString: Untagged
   m_Icon: {fileID: 0}

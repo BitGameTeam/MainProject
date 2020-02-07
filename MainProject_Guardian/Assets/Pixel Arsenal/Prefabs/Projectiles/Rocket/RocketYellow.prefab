@@ -9129,7 +9129,7 @@ GameObject:
   - component: {fileID: 19837514}
   - component: {fileID: 19990616}
   - component: {fileID: 8248244}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RocketYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

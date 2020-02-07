@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 6637555554402408873}
   - component: {fileID: 6637555554402408872}
   m_Layer: 5
-  m_Name: SoulCylinder (m)
+  m_Name: ManaSlider (m)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1108,13 +1108,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6637555554402408854}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 542821fdb9f884893928911ce700600d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SliderController: {fileID: 0}
-  SliderValue: 0
+  SliderController: {fileID: 6637555554402408854}
+  SliderValue: 100
 --- !u!114 &6637555554402408872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderValueTarget: {fileID: 6637555554920322530}
   maxValue: 100
-  sliderValue: 0
+  sliderValue: 100
 --- !u!1 &6637555554429734545
 GameObject:
   m_ObjectHideFlags: 0
@@ -4923,7 +4923,7 @@ GameObject:
   - component: {fileID: 6637555554920322532}
   m_Layer: 5
   m_Name: Text_Value
-  m_TagString: PercentageText
+  m_TagString: NumberText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4986,7 +4986,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100%
+  m_Text: 100
 --- !u!1 &6637555554921343332
 GameObject:
   m_ObjectHideFlags: 0
@@ -13815,7 +13815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1110, y: -264.1333}
+  m_AnchoredPosition: {x: 1110, y: -264.1328}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6637555555899779264
@@ -19395,7 +19395,7 @@ GameObject:
   - component: {fileID: 7082507176124123119}
   - component: {fileID: 5592551228901012749}
   m_Layer: 0
-  m_Name: RemainMonster_text
+  m_Name: MonsterCount_text
   m_TagString: Text_002
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -20,7 +20,8 @@ public class ShootingManager : MonoBehaviour
     Transform shootTarget_Right1;
     [SerializeField]
     FixedShootingJoystick sjs;
-    
+
+    bool shootAble = false;
     bool skill1_cool_check = true;
     bool skill2_cool_check = true;
     bool skill3_cool_check = true;
@@ -54,20 +55,23 @@ public class ShootingManager : MonoBehaviour
     float[] skillCurrentCoolList = new float[3];
 
     private SkillType skillType;
+    CharacterStatus characterStatus;
     
     void Start()
     {
         sjs = FindObjectOfType<FixedShootingJoystick>();
         skill1_cool_check = true;
-
+        GameObject player = GameObject.Find("Player");
+        characterStatus = player.GetComponent<CharacterStatus>();
         SelectSkill(0);
     }
     public void ShootMissile()
     {
-        isCharge = false;
 
+        isCharge = false;
         if (skill1_cool_check == true && currentProjectile == 0)
         {
+            characterStatus.mana_Point -= mana;
             Debug.Log("ShootMissile");
             GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
             projectile.transform.LookAt(shootTarget);
@@ -97,6 +101,7 @@ public class ShootingManager : MonoBehaviour
         }
         if (skill2_cool_check == true && currentProjectile == 1)
         {
+            characterStatus.mana_Point -= mana;
             Debug.Log("ShootMissile");
             GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
             projectile.transform.LookAt(shootTarget);
@@ -126,6 +131,7 @@ public class ShootingManager : MonoBehaviour
         }
         if (skill3_cool_check == true && currentProjectile == 2)
         {
+            characterStatus.mana_Point -= mana;
             Debug.Log("ShootMissile");
             GameObject projectile = Instantiate(projectiles[currentProjectile], spawnPosition.position, Quaternion.identity) as GameObject;
             projectile.transform.LookAt(shootTarget);
@@ -158,6 +164,7 @@ public class ShootingManager : MonoBehaviour
         currentCharge = 0f;
 
         ShowChargeSlider();
+
     }
     public void CheckJoystickUp(bool upCheck)
     {
@@ -165,11 +172,17 @@ public class ShootingManager : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (mana <= characterStatus.mana_Point)
+        {
+            shootAble = true;
+        }
+        else
+        {
+            shootAble = false;
+        }
         #region 쿨타임
         Decrease_Current_Cool();
-        //StartCoroutine(Decrease_Current_Cool());
         #endregion
-
         #region ui
         ShowChargeSlider();
         ShowSkillCoolSlider();
@@ -182,93 +195,43 @@ public class ShootingManager : MonoBehaviour
             chargeSlider.SetActive(false);
         }
         #endregion
-
-        if (Input.GetKeyDown(KeyCode.D))
+        #region 스킬(투사체) 사용관련
+        if(shootAble == true)
         {
-            nextEffect();
-        }
-    
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            previousEffect();
-        }
-
-        //float radian = CalculateRadian();
-
-        //if (radian >= 0.9f)
-        //{
-        //    if(skillType == SkillType.None)
-        //        ShootMissile();
-        //    else if(skillType == SkillType.Charge)
-        //    {
-        //        if (skill1_cool_check == true)
-        //        StartCoroutine( Skill_Charging());
-        //    }
-        //    else if (skillType == SkillType.Spread)
-        //        ShootMissile();
-        //}
-        //else if (0f < radian && radian < 0.9f)
-        //{
-        //    if(skillType == SkillType.Charge)
-        //    {
-        //        StopCoroutine(Skill_Charging());
-        //        currentCharge = 0f;
-        //        isCharge = false;
-        //    }
-        //}
-
-        if (isEndpoint == true)
-        {
-            if (skillType == SkillType.None)
-                ShootMissile();
-            else if (skillType == SkillType.Charge)
+            if (isEndpoint == true)
             {
-                if (skill1_cool_check == true)
-                    StartCoroutine(Skill_Charging());
+                if (skillType == SkillType.None)
+                    ShootMissile();
+                else if (skillType == SkillType.Charge)
+                {
+                    if (skill1_cool_check == true)
+                        StartCoroutine(Skill_Charging());
+                }
+                else if (skillType == SkillType.Spread)
+                    ShootMissile();
             }
-            else if (skillType == SkillType.Spread)
-                ShootMissile();
-        }
-        else if (isEndpoint == false)
-        {
-            if (skillType == SkillType.Charge)
+            else if (isEndpoint == false)
             {
-                StopCoroutine(Skill_Charging());
-                currentCharge = 0f;
-                isCharge = false;
+                if (skillType == SkillType.Charge)
+                {
+                    StopCoroutine(Skill_Charging());
+                    currentCharge = 0f;
+                    isCharge = false;
+                }
+            }
+            if (isPointerUp == true)
+            {
+                if (isCharge == true)
+                {
+                    ShootMissile();
+                    ShowChargeSlider();
+                    StopCoroutine(Skill_Charging());
+                }
             }
         }
-        if (isPointerUp == true)
-        {
-            if(isCharge == true)
-            {
-                ShootMissile();
-                ShowChargeSlider();
-                StopCoroutine(Skill_Charging());
-            }
-        }
+        #endregion
+        
     }
-    
-
-
-    public void nextEffect()
-    {
-        if (currentProjectile < projectiles.Length - 1)
-            currentProjectile++;
-        else
-            currentProjectile = 0;
-        ChangeSkill();
-    }
-    
-    public void previousEffect()
-    {
-        if (currentProjectile > 0)
-            currentProjectile--;
-        else
-            currentProjectile = projectiles.Length - 1;
-        ChangeSkill();
-    }
-
     #region 스킬에서 받아오는 정보
     public void SelectSkill(int selectSkillIndex)
     {
@@ -296,7 +259,6 @@ public class ShootingManager : MonoBehaviour
         }
         
     }
-
     public void AdjustSpeed(float newSpeed)
     {
         speed = newSpeed;
@@ -381,17 +343,6 @@ public class ShootingManager : MonoBehaviour
         }
     }
 
-    /*IEnumerator Decrease_Current_Cool()
-    {
-        yield return new WaitForSeconds(0.01f);
-        for(int i = 0; i < skillCurrentCoolList.Length; i++)
-        {
-            if (skillCurrentCoolList[i] > 0)
-                skillCurrentCoolList[i] -= 0.01f;
-            else if (skillCurrentCoolList[i] < 0)
-                skillCurrentCoolList[i] = 0;
-        }
-    }*/
     #endregion
 
     #region UI 관련 메서드

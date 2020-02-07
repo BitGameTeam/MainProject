@@ -237,3 +237,4 @@ D:\GitHub\ProjectA\MainProject\MainProject_Guardian\obj\Debug\Assembly-CSharp.cs
 D:\GitHub\ProjectA\MainProject\MainProject_Guardian\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\GitHub\ProjectA\MainProject\MainProject_Guardian\obj\Debug\Assembly-CSharp.dll
 D:\GitHub\ProjectA\MainProject\MainProject_Guardian\obj\Debug\Assembly-CSharp.pdb
+D:\GitHub\ProjectA\MainProject\MainProject_Guardian\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.dll

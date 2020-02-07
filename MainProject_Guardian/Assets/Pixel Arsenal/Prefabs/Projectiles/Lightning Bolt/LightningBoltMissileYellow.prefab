@@ -4566,7 +4566,7 @@ GameObject:
   - component: {fileID: 19861980}
   - component: {fileID: 19949094}
   - component: {fileID: 8249900}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LightningBoltMissileYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

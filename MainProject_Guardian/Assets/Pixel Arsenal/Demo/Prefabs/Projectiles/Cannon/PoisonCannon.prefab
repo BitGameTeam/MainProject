@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 13541744}
   - component: {fileID: 3382448}
   - component: {fileID: 114774558970153526}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PoisonCannon
-  m_TagString: Untagged
+  m_TagString: Projectile_Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153a931235176a644b2445a77f06435a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 2
+  power: 0
   distance: 0
   rank: 1
   element: 3
@@ -93,6 +93,7 @@ MonoBehaviour:
   damage: 0
   missileLifeT: 1
   manaCost: 40
+  knockBackPower: 0
   chargeMax: 1
   chargeMulti: 1.5
   increaseSpeedMulti: 1600

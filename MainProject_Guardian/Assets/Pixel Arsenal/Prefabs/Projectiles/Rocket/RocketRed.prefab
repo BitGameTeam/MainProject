@@ -9246,7 +9246,7 @@ GameObject:
   - component: {fileID: 19828736}
   - component: {fileID: 19949798}
   - component: {fileID: 8208990}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RocketRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

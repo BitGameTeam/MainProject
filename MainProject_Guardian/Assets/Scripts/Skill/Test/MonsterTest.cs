@@ -522,6 +522,7 @@ public class MonsterTest : MonoBehaviour
             monSpawn = 0;
         if (!hasTriggered)
         {
+            hasTriggered = true;
         if (other.gameObject.tag == "Projectile_Trigger")
         {
             sp = other.gameObject.GetComponent<SkillProjectile>();
@@ -928,7 +929,8 @@ public class MonsterTest : MonoBehaviour
                     break;
             }
 
-        }
+                hasTriggered = false;
+            }
 
         }
     }

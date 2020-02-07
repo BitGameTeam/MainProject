@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 19813052}
   - component: {fileID: 19917154}
   - component: {fileID: 8260574}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FatMissileRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

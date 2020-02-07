@@ -14049,7 +14049,7 @@ GameObject:
   - component: {fileID: 19883174}
   - component: {fileID: 19982544}
   - component: {fileID: 8217090}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SparkleExplosionPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
